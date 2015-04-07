@@ -14,6 +14,9 @@
 		C607B28A1AD2F13900400F25 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C607B2891AD2F13900400F25 /* Images.xcassets */; };
 		C607B28D1AD2F13900400F25 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C607B28B1AD2F13900400F25 /* LaunchScreen.xib */; };
 		C607B2991AD2F13900400F25 /* ColorTapTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C607B2981AD2F13900400F25 /* ColorTapTests.m */; };
+		C607B2A71AD310FF00400F25 /* ColorBubble.m in Sources */ = {isa = PBXBuildFile; fileRef = C607B2A61AD310FF00400F25 /* ColorBubble.m */; };
+		C607B2AB1AD3113300400F25 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = C607B2AA1AD3113300400F25 /* Constants.m */; };
+		C671D5451AD458D900C6C77B /* ScoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = C671D5441AD458D900C6C77B /* ScoreView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,12 @@
 		C607B2921AD2F13900400F25 /* ColorTapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ColorTapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C607B2971AD2F13900400F25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C607B2981AD2F13900400F25 /* ColorTapTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColorTapTests.m; sourceTree = "<group>"; };
+		C607B2A51AD310FF00400F25 /* ColorBubble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorBubble.h; path = Views/ColorBubble.h; sourceTree = "<group>"; };
+		C607B2A61AD310FF00400F25 /* ColorBubble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorBubble.m; path = Views/ColorBubble.m; sourceTree = "<group>"; };
+		C607B2A91AD3113300400F25 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = Utilities/Constants.h; sourceTree = "<group>"; };
+		C607B2AA1AD3113300400F25 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Constants.m; path = Utilities/Constants.m; sourceTree = "<group>"; };
+		C671D5431AD458D900C6C77B /* ScoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScoreView.h; path = Views/ScoreView.h; sourceTree = "<group>"; };
+		C671D5441AD458D900C6C77B /* ScoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScoreView.m; path = Views/ScoreView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +90,10 @@
 		C607B27B1AD2F13900400F25 /* ColorTap */ = {
 			isa = PBXGroup;
 			children = (
+				C607B2A81AD3111100400F25 /* Utilities */,
+				C607B2A41AD310BD00400F25 /* Controller */,
+				C607B2A31AD310B400400F25 /* Modal */,
+				C607B2A21AD310A500400F25 /* Views */,
 				C607B2801AD2F13900400F25 /* AppDelegate.h */,
 				C607B2811AD2F13900400F25 /* AppDelegate.m */,
 				C607B2831AD2F13900400F25 /* ViewController.h */,
@@ -117,6 +130,40 @@
 				C607B2971AD2F13900400F25 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C607B2A21AD310A500400F25 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C607B2A51AD310FF00400F25 /* ColorBubble.h */,
+				C607B2A61AD310FF00400F25 /* ColorBubble.m */,
+				C671D5431AD458D900C6C77B /* ScoreView.h */,
+				C671D5441AD458D900C6C77B /* ScoreView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		C607B2A31AD310B400400F25 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Modal;
+			sourceTree = "<group>";
+		};
+		C607B2A41AD310BD00400F25 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		C607B2A81AD3111100400F25 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				C607B2A91AD3113300400F25 /* Constants.h */,
+				C607B2AA1AD3113300400F25 /* Constants.m */,
+			);
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,9 +266,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C607B2AB1AD3113300400F25 /* Constants.m in Sources */,
+				C671D5451AD458D900C6C77B /* ScoreView.m in Sources */,
 				C607B2851AD2F13900400F25 /* ViewController.m in Sources */,
 				C607B2821AD2F13900400F25 /* AppDelegate.m in Sources */,
 				C607B27F1AD2F13900400F25 /* main.m in Sources */,
+				C607B2A71AD310FF00400F25 /* ColorBubble.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +462,7 @@
 				C607B29E1AD2F13A00400F25 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C607B29F1AD2F13A00400F25 /* Build configuration list for PBXNativeTarget "ColorTapTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +471,7 @@
 				C607B2A11AD2F13A00400F25 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
