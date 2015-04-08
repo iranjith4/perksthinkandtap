@@ -18,10 +18,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        data = @{
-                 @"global_high" : @"324564200",
-                 @"personal_high" : @"2340"
-                 };
+        data = dict;
         [self initUI];
     }
     return self;
@@ -30,31 +27,31 @@
 - (void) initUI{
 //    self.backgroundColor = [UIColor colorWithRed:0.822 green:0.990 blue:0.556 alpha:1.000];
     yPos = self.frame.size.width * SPACE_FACTOR;
-    self.globalLabel = [[UILabel alloc] init];
-    self.globalLabel.text = @"Global High";
-    self.globalLabel.font = [UIFont fontWithName:FONT_LIGHT size:[Constants changeFontSizeWithHeight:IPHONE4_SIZE :11]];
-    self.globalLabel.textColor = [UIColor orangeColor];
-    self.globalLabel.textAlignment = NSTextAlignmentLeft;
-    [self.globalLabel sizeToFit];
-    CGRect frame = self.globalLabel.frame;
+    self.scoreLabel = [[UILabel alloc] init];
+    self.scoreLabel.text = @"Score";
+    self.scoreLabel.font = [UIFont fontWithName:FONT_LIGHT size:[Constants changeFontSizeWithHeight:IPHONE4_SIZE :11]];
+    self.scoreLabel.textColor = [UIColor orangeColor];
+    self.scoreLabel.textAlignment = NSTextAlignmentLeft;
+    [self.scoreLabel sizeToFit];
+    CGRect frame = self.scoreLabel.frame;
     frame.origin.x = yPos;
     frame.origin.y = self.frame.size.width * SPACE_FACTOR;
-    self.globalLabel.frame = frame;
-    [self addSubview:self.globalLabel];
+    self.scoreLabel.frame = frame;
+    [self addSubview:self.scoreLabel];
     
-    yPos += self.globalLabel.frame.size.height;
+    yPos += self.scoreLabel.frame.size.height;
     
-    self.globalScore = [[UILabel alloc] init];
-    self.globalScore.text = [data objectForKey:@"global_high"];
-    self.globalScore.font = [UIFont fontWithName:FONT_SEMIBOLD size:[Constants changeFontSizeWithHeight:IPHONE4_SIZE :21]];
-    self.globalScore.textColor = [UIColor grayColor];
-    self.globalScore.textAlignment = NSTextAlignmentLeft;
-    [self.globalScore sizeToFit];
-    frame = self.globalScore.frame;
+    self.score = [[UILabel alloc] init];
+    self.score.text = [data objectForKey:@"score"];
+    self.score.font = [UIFont fontWithName:FONT_SEMIBOLD size:[Constants changeFontSizeWithHeight:IPHONE4_SIZE :21]];
+    self.score.textColor = [UIColor grayColor];
+    self.score.textAlignment = NSTextAlignmentLeft;
+    [self.score sizeToFit];
+    frame = self.score.frame;
     frame.origin.x = self.frame.size.width * SPACE_FACTOR;
     frame.origin.y = yPos;
-    self.globalScore.frame = frame;
-    [self addSubview:self.globalScore];
+    self.score.frame = frame;
+    [self addSubview:self.score];
     
     self.personalLabel = [[UILabel alloc] init];
     self.personalLabel.text = @"Personal High";
@@ -82,10 +79,23 @@
 
 }
 
+- (void)updateGameScore:(NSString *)scoreValue{
+    self.score.text = scoreValue;
+    self.score.font = [UIFont fontWithName:FONT_SEMIBOLD size:[Constants changeFontSizeWithHeight:IPHONE4_SIZE :21]];
+    self.score.textColor = [UIColor grayColor];
+    self.score.textAlignment = NSTextAlignmentLeft;
+    [self.score sizeToFit];
+    CGRect frame = self.score.frame;
+    frame.origin.x = self.frame.size.width * SPACE_FACTOR;
+    frame.origin.y = yPos;
+    self.score.frame = frame;
+
+}
+
 /*NOTE:
 DATA Model
   @{
-@"global_high" : @"2349300",
+@"score" : @"870",
 @"personal_high" : @"36400"
 };
 */

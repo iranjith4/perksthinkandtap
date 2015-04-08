@@ -23,10 +23,13 @@
 }
 
 - (void)initUI{
-    self.backgroundColor = [UIColor lightGrayColor];
+    self.backgroundColor = [UIColor grayColor];
     self.shapeView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width / 2, self.frame.size.height / 2)];
     self.shapeView.image = [UIImage imageNamed:shapeName];
-    self.shapeView.center = self.center;
+    CGRect frame =self.shapeView.frame;
+    frame.origin.x = self.frame.size.width / 4;
+    frame.origin.y = self.frame.size.height / 4;
+    self.shapeView.frame = frame;
     [self addSubview:self.shapeView];
     
     self.layer.cornerRadius = self.frame.size.width / 2;

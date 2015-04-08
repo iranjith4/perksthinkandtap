@@ -12,8 +12,10 @@
 @interface ScoreView : UIView
 
 - (instancetype)initWithFrame:(CGRect)frame andData:(NSDictionary *)dict;
-@property (nonatomic, strong) UILabel *globalLabel;
+@property (nonatomic, strong) UILabel *scoreLabel;
 @property (nonatomic, strong) UILabel *personalLabel;
-@property (nonatomic, strong) UILabel *globalScore;
+@property (nonatomic, strong) UILabel *score;
 @property (nonatomic, strong) UILabel *personalScore;
+
+- (void)updateGameScore:(NSString *)scoreValue;
 @end
