@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#define SPACE_FACTOR 0.02
 
 @interface ScoreView : UIView
 

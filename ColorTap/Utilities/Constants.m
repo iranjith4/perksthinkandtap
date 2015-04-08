@@ -8,8 +8,16 @@
 
 #import "Constants.h"
 
-
-
 @implementation Constants
+
++(float)changeFontSizeWithWidth:(CGSize)referenceDevice :(float)space{
+    space = space * (SCREEN_WIDTH/referenceDevice.width);
+    return space;
+}
+
++(float)changeFontSizeWithHeight:(CGSize)referenceDevice :(float)space{
+    space = space * (SCREEN_HEIGHT/referenceDevice.height);
+    return space;
+}
 
 @end

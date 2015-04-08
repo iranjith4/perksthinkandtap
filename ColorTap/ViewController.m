@@ -9,10 +9,12 @@
 #import "ViewController.h"
 #import "ColorBubble.h"
 #import "Constants.h"
+#import "ScoreView.h"
 
 @interface ViewController (){
     float xPos;
     float yPos;
+    ScoreView *scores;
 }
 
 @end
@@ -22,9 +24,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     xPos = 0;
-    yPos = self.view.frame.size.height * 0.60; //TODO: Tobe changed after adding the previous views
+    yPos = self.view.frame.size.height * 0.20; //TODO: Tobe changed after adding the previous views
+    [self addScoreBoard];
     [self loadColorBubbles];
     [self loadAdMob];
+}
+
+- (void)addScoreBoard{
+    scores = [[ScoreView alloc] initWithFrame:CGRectMake(0, yPos, self.view.frame.size.width, self.view.frame.size.height * 0.10) andData:nil];
+    yPos += scores.frame.size.height + self.view.frame.size.height * 0.02;
+    [self.view addSubview:scores];
 }
 
 - (void)loadColorBubbles{
