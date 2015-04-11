@@ -19,7 +19,7 @@
 @property (nonatomic, strong) UIImageView *gameImage;
 @property (nonatomic) id<GamePlayProtocol> delegate;
 -(void)setGameImageAtRandomPlace:(NSString *)imageName;
-- (void) moveGameImage:(NSString *)imageName;
+- (void)moveGameImage:(NSString *)imageName animTime:(float)animTime;
 - (void) stopAnimations;
 
 

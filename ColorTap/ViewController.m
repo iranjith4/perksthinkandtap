@@ -19,6 +19,8 @@
     BOOL isTouched;
     int loadedTag;
     int score;
+    float animTime;
+    UIButton *start;
 }
 
 @end
@@ -32,12 +34,14 @@
     [self initValues];
     [self addScoreBoard];
     [self gameView];
-    [self startGame];
     [self loadColorBubbles];
+    [self addStartButton];
     [self loadAdMob];
+    [self blockAllUserInteraction];
 }
 - (void) initValues{
     isTouched = NO;
+    animTime = MINIMUM_SPEED; // This is the starting game speed
     score = 0;
 }
 
@@ -57,6 +61,26 @@
     yPos += gamePlay.frame.size.height + self.view.frame.size.height * 0.05;
     gamePlay.delegate = self;
    // [gamePlay moveGameImage:@"tr_f_2.png"];
+}
+
+- (void)addStartButton {
+    start = [[UIButton alloc] initWithFrame:CGRectMake(0, yPos, self.view.frame.size.width * 0.60, self.view.frame.size.height * 0.07)];
+    start.backgroundColor = [UIColor colorWithRed:(CGFloat)85/255 green:(CGFloat)172/255 blue:(CGFloat)238/255 alpha:1.0];
+    [start setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [start setTitleColor:[UIColor colorWithWhite:0.8 alpha:1.0] forState:UIControlStateSelected];
+    [start setTitle:@"Start" forState:UIControlStateNormal];
+    start.titleLabel.font = [UIFont fontWithName:FONT_SEMIBOLD size:[Constants changeFontSizeWithHeight:IPHONE6_SIZE :18]];
+    [start addTarget:self action:@selector(startButton) forControlEvents:UIControlEventTouchUpInside];
+    start.center = CGPointMake(self.view.center.x, start.center.y);
+    start.layer.cornerRadius = 5.0;
+    start.layer.masksToBounds = YES;
+    yPos += start.frame.size.height + self.view.frame.size.height * 0.02;
+    [self.view addSubview:start];
+}
+
+- (void)startButton{
+    [self startGame];
+    start.hidden = YES;
 }
 
 - (void)loadColorBubbles{
@@ -81,6 +105,7 @@
             xPos += bubble.frame.size.width + 10;
         }
     }
+    yPos += bubbleSize + self.view.frame.size.height * 0.04;
 }
 
 -(void)bubbleTapped :(UIGestureRecognizer *)gesture{
@@ -101,16 +126,17 @@
             break;
     }
     
+    [gamePlay stopAnimations];  //Stop Moving Animation
     if (loadedTag == tagValue) {
-        [gamePlay stopAnimations];
         [self startGame];
         [self updateScore];
     }else{
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Game Over" message:@"You missed the game." delegate:self cancelButtonTitle:@"Close" otherButtonTitles:nil];
+        [self blockAllUserInteraction];
+        NSString *alertMessage = [NSString stringWithFormat:@"You missed the game. Your score is %d",score];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Game Over" message:alertMessage delegate:self cancelButtonTitle:@"Close" otherButtonTitles:nil];
         [self resetScores];
         [alert show];
     }
-    
 }
 
 - (void)updateScore{
@@ -128,6 +154,7 @@
     for (ColorBubble *bubble in self.view.subviews) {
         bubble.userInteractionEnabled = NO;
     }
+    start.userInteractionEnabled = YES;
 }
 
 -(void)loadAdMob{
@@ -145,9 +172,14 @@
 
 - (void)startGame{
     isTouched = NO;
+    [self releaseAllUserInteractionBlock];
     NSDictionary *gameValues = [Constants getRandomGameImage];
     loadedTag = [[gameValues valueForKey:@"tag"] intValue];
-    [gamePlay moveGameImage:[gameValues objectForKey:@"name"]];
+    [gamePlay moveGameImage:[gameValues objectForKeyedSubscript:@"name"] animTime:animTime];
+    if (animTime > MAXIMUM_SPEED) {
+        animTime -= TIME_REDUCTION_FACTOR;
+    }
+    NSLog(@"TIME %f",animTime);
 }
 
 - (void)loseGame{
@@ -156,13 +188,17 @@
 
 - (void)resetScores{
     score = 0;
+    animTime = MINIMUM_SPEED;
     [scores updateGameScore:[NSString stringWithFormat:@"%d",score]];
+    start.hidden = NO;
 }
 
 -(void)animationEnds{
     if (!isTouched) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Game Over" message:@"You missed the touch." delegate:self cancelButtonTitle:@"Close" otherButtonTitles:nil];
+        NSString *alertMessage = [NSString stringWithFormat:@"You missed the Touch. Your score is %d",score];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Game Over" message:alertMessage delegate:self cancelButtonTitle:@"Close" otherButtonTitles:nil];
         [self resetScores];
+        [self blockAllUserInteraction];
         [alert show];
     }
 }

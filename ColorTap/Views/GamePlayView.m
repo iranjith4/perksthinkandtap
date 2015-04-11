@@ -25,11 +25,7 @@
     [self addSubview:self.gameImage];
 }
 
--(void)setGameImageAtRandomPlace:(NSString *)imageName{
-    
-}
-
-- (void) moveGameImage:(NSString *)imageName{
+- (void) moveGameImage:(NSString *)imageName animTime:(float)animTime{
     
     self.gameImage.image = [UIImage imageNamed:imageName];
     CGRect frame = self.gameImage.frame;
@@ -39,7 +35,7 @@
     CALayer *pLayer = [self.gameImage.layer presentationLayer];
     CGRect frameStop = pLayer.frame;
     NSLog(@"%f",frameStop.origin.x);
-    [UIView animateWithDuration:3.5 //Time for the animation
+    [UIView animateWithDuration:animTime //Time for the animation
                      animations:^{
                          self.gameImage.frame = CGRectMake (self.frame.size.width,self.gameImage.frame.origin.y,self.gameImage.frame.size.width,self.gameImage.frame.size.height);
                      }
