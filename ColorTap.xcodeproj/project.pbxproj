@@ -40,6 +40,8 @@
 		C6A784BC1AD598290077ED0F /* tr_w@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A784A71AD598290077ED0F /* tr_w@2x.png */; };
 		C6A784BF1AD5A1460077ED0F /* GamePlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A784BE1AD5A1460077ED0F /* GamePlayView.m */; };
 		C6B4D1271ADA2B1400BFC7C4 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6B4D1261ADA2B1400BFC7C4 /* GameKit.framework */; };
+		C6D4974C1ADA9BB200B59313 /* MenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = C6D4974B1ADA9BB200B59313 /* MenuView.m */; };
+		C6D4974F1ADA9C6A00B59313 /* MenuButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C6D4974E1ADA9C6A00B59313 /* MenuButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +98,10 @@
 		C6A784BD1AD5A1460077ED0F /* GamePlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GamePlayView.h; path = Views/GamePlayView.h; sourceTree = "<group>"; };
 		C6A784BE1AD5A1460077ED0F /* GamePlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GamePlayView.m; path = Views/GamePlayView.m; sourceTree = "<group>"; };
 		C6B4D1261ADA2B1400BFC7C4 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		C6D4974A1ADA9BB200B59313 /* MenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuView.h; path = Views/MenuView.h; sourceTree = "<group>"; };
+		C6D4974B1ADA9BB200B59313 /* MenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuView.m; path = Views/MenuView.m; sourceTree = "<group>"; };
+		C6D4974D1ADA9C6A00B59313 /* MenuButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuButton.h; path = Views/MenuButton.h; sourceTree = "<group>"; };
+		C6D4974E1ADA9C6A00B59313 /* MenuButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuButton.m; path = Views/MenuButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +197,10 @@
 				C671D5441AD458D900C6C77B /* ScoreView.m */,
 				C6A784BD1AD5A1460077ED0F /* GamePlayView.h */,
 				C6A784BE1AD5A1460077ED0F /* GamePlayView.m */,
+				C6D4974A1ADA9BB200B59313 /* MenuView.h */,
+				C6D4974B1ADA9BB200B59313 /* MenuView.m */,
+				C6D4974D1ADA9C6A00B59313 /* MenuButton.h */,
+				C6D4974E1ADA9C6A00B59313 /* MenuButton.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -383,9 +393,11 @@
 			files = (
 				C607B2AB1AD3113300400F25 /* Constants.m in Sources */,
 				C6A784BF1AD5A1460077ED0F /* GamePlayView.m in Sources */,
+				C6D4974F1ADA9C6A00B59313 /* MenuButton.m in Sources */,
 				C671D5451AD458D900C6C77B /* ScoreView.m in Sources */,
 				C607B2851AD2F13900400F25 /* ViewController.m in Sources */,
 				C607B2821AD2F13900400F25 /* AppDelegate.m in Sources */,
+				C6D4974C1ADA9BB200B59313 /* MenuView.m in Sources */,
 				C607B27F1AD2F13900400F25 /* main.m in Sources */,
 				C607B2A71AD310FF00400F25 /* ColorBubble.m in Sources */,
 			);

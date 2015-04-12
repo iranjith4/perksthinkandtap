@@ -33,6 +33,10 @@
 #define STATUS_BAR_HEIGHT [UIApplication sharedApplication].statusBarFrame.size.height
 #define SCREEN_RESOLUTION_WIDTH [[UIScreen mainScreen] bounds].size.width * [UIScreen mainScreen].scale
 
+//Leaderboard Names Constants
+#define LEADERBOARD_SCORE @"grp.colortapscore"
+#define LEADERBOARD_TAPS @"grp.colortaptaps"
+
 @interface Constants : NSObject
 
 +(float)changeFontSizeWithWidth:(CGSize)referenceDevice :(float)space;

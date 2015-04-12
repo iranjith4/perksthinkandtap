@@ -11,6 +11,7 @@
 #import "Constants.h"
 #import "ScoreView.h"
 #import <GameKit/GameKit.h>
+#import "MenuView.h"
 
 @interface ViewController (){
     float xPos;
@@ -22,6 +23,7 @@
     BOOL isGameCenterEnabled;
     int loadedTag;
     int score;
+    int taps;
     float animTime;
     UIButton *start;
     NSString *scoreLeaderBoard;
@@ -41,6 +43,7 @@
     [self gameView];
     [self loadColorBubbles];
     [self addStartButton];
+    [self addMenus];
     [self loadAdMob];
     [self blockAllUserInteraction];
 }
@@ -48,6 +51,7 @@
     isTouched = NO;
     animTime = MINIMUM_SPEED; // This is the starting game speed
     score = 0;
+    taps = 0;
 }
 
 - (void)addScoreBoard{
@@ -89,6 +93,11 @@
     start.layer.masksToBounds = YES;
     yPos += start.frame.size.height + self.view.frame.size.height * 0.02;
     [self.view addSubview:start];
+}
+
+- (void) addMenus{
+    MenuView *menus = [[MenuView alloc] initWithFrame:CGRectMake(0, yPos, self.view.frame.size.width, self.view.frame.size.height * 0.08)];
+    [self.view addSubview:menus];
 }
 
 - (void)startButton{
@@ -159,6 +168,7 @@
 - (void)scoreUpdater:(int)scoreVal{
     if (isPoint) {
         score += scoreVal;
+        taps +=1;
     }
     [scores updateGameScore:[NSString stringWithFormat:@"%d",score]];
 }
@@ -173,6 +183,7 @@
     if (gameScore > [[settings objectForKey:@"personal_high"] intValue]) {
         [settings setObject:[NSString stringWithFormat:@"%d",score] forKey:@"personal_high"];
         [scores updatePersonalScore:[settings objectForKey:@"personal_high"]];
+        [self scoreToGamecenter:gameScore];
     }
 }
 
@@ -194,7 +205,6 @@
     UIView *adMob = [[UIView alloc] initWithFrame:adMobFrame];
     adMob.backgroundColor = [UIColor colorWithRed:0.510 green:0.755 blue:1.000 alpha:1.000];
     [self.view addSubview:adMob];
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -220,6 +230,7 @@
 
 - (void)resetScores{
     score = 0;
+    taps = 0;
     animTime = MINIMUM_SPEED;
     [scores updateGameScore:[NSString stringWithFormat:@"%d",score]];
     start.hidden = NO;
@@ -237,7 +248,26 @@
 - (void)showGameEndAlert:(NSString *)alertMsg andScore:(NSString*)scoreString;{
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Game Over" message:alertMsg delegate:self cancelButtonTitle:@"Close" otherButtonTitles:nil];
     [alert show];
+    [self updateTaps];
+    // Delete this tap alert after checking
+    NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
+    if ([settings objectForKey:@"taps"] != nil) {
+        UIAlertView *tapAlert = [[UIAlertView alloc] initWithTitle:@"Game Over" message:[NSString stringWithFormat:@"TAPS : %@",[settings objectForKey:@"taps"]] delegate:self cancelButtonTitle:@"Close" otherButtonTitles:nil];
+        [tapAlert show];
+    }
     [self updatePersonalHighScore:[scoreString intValue]];
+}
+
+- (void)updateTaps{
+    NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
+    if ([settings objectForKey:@"taps"] != nil) {
+        unsigned long long tapValue = [[settings objectForKey:@"taps"] longLongValue];
+        tapValue += taps;
+        [settings setObject:[NSString stringWithFormat:@"%llu",tapValue] forKey:@"taps"];
+    }else{
+        [settings setObject:[NSString stringWithFormat:@"%u",taps] forKey:@"taps"];
+    }
+    [self tapsToGameCenter:taps];
 }
 
 #pragma mark - Game Center Methods
@@ -251,32 +281,54 @@
         }
         else{
             if ([GKLocalPlayer localPlayer].authenticated) {
-                //_gameCenterEnabled = YES;
                 isGameCenterEnabled = YES;
-                
-                // Get the default leaderboard identifier.
-                [[GKLocalPlayer localPlayer] loadDefaultLeaderboardIdentifierWithCompletionHandler:^(NSString *leaderboardIdentifier, NSError *error) {
-                    
-                    if (error != nil) {
-                        NSLog(@"%@", [error localizedDescription]);
-                    }
-                    else{
-                       // _leaderboardIdentifier = leaderboardIdentifier;
-                        scoreLeaderBoard = leaderboardIdentifier;
-                    }
-                }];
-            }
-            
-            else{
-                //_gameCenterEnabled = NO;
-                isGameCenterEnabled = NO;
+                [self updateDataFromGameCenter];
+//
+//                // Get the default leaderboard identifier.
+//                [[GKLocalPlayer localPlayer] loadDefaultLeaderboardIdentifierWithCompletionHandler:^(NSString *leaderboardIdentifier, NSError *error) {
+//                    
+//                    if (error != nil) {
+//                        NSLog(@"%@", [error localizedDescription]);
+//                    }
+//                    else{
+//                        scoreLeaderBoard = leaderboardIdentifier;
+//                    }
+//                }];
+//            }
+//            else{
+//                isGameCenterEnabled = NO;
             }
         }
     };
 }
 
-- (void)scoreToGamecenter{
+- (void)updateDataFromGameCenter{
+    NSLog(@"UPDATE_GAMESCENTER_DATA");
+    //TODO: Update the local copy of highscore from the game center logged in
+}
+
+- (void)scoreToGamecenter:(int)scoreValue{
+    GKScore *scoreInGameCenter = [[GKScore alloc] initWithLeaderboardIdentifier:LEADERBOARD_SCORE];
+    scoreInGameCenter.value = scoreValue;
+    [GKScore reportScores:@[scoreInGameCenter] withCompletionHandler:^(NSError *error) {
+        if (error != nil) {
+            NSLog(@"%@", [error localizedDescription]);
+        }
+    }];
+}
+
+- (void)tapsToGameCenter:(int)tapValue{
     
+    NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
+    long long int tapsCount = [[settings objectForKey:@"taps"] longLongValue];
+    tapsCount += tapValue;
+    GKScore *tapInGC = [[GKScore alloc] initWithLeaderboardIdentifier:LEADERBOARD_TAPS];
+    tapInGC.value = tapsCount;
+    [GKScore reportScores:@[tapInGC] withCompletionHandler:^(NSError *error) {
+        if (error != nil) {
+            NSLog(@"%@", [error localizedDescription]);
+        }
+    }];
 }
 
 @end
