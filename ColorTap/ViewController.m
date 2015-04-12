@@ -17,6 +17,7 @@
     ScoreView *scores;
     GamePlayView *gamePlay;
     BOOL isTouched;
+    BOOL isPoint;
     int loadedTag;
     int score;
     float animTime;
@@ -125,18 +126,30 @@
         default:
             break;
     }
+    isPoint = NO;
     
-    [gamePlay stopAnimations];  //Stop Moving Animation
     if (loadedTag == tagValue) {
+        
+        // Order should not be changed !
+        
+        isPoint = YES;
+        [gamePlay stopAnimations]; // This should be called after setting isPoint to YES
         [self startGame];
-        [self updateScore];
     }else{
         [self blockAllUserInteraction];
+        [gamePlay stopAnimations];
         NSString *alertMessage = [NSString stringWithFormat:@"You missed the game. Your score is %d",score];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Game Over" message:alertMessage delegate:self cancelButtonTitle:@"Close" otherButtonTitles:nil];
         [self resetScores];
         [alert show];
     }
+}
+
+- (void)scoreUpdater:(int)scoreVal{
+    if (isPoint) {
+        score += scoreVal;
+    }
+    [scores updateGameScore:[NSString stringWithFormat:@"%d",score]];
 }
 
 - (void)updateScore{

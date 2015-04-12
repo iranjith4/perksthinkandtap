@@ -20,7 +20,15 @@
 }
 
 - (void) initUI{
-    self.backgroundColor = [UIColor colorWithWhite:0.947 alpha:1.000];
+    //self.backgroundColor = [UIColor colorWithWhite:0.947 alpha:1.000];
+    float xPos = 0;
+    NSArray * scoreColors = [NSArray arrayWithObjects:[UIColor colorWithWhite:0.850 alpha:1.0],[UIColor colorWithWhite:0.900 alpha:1.0],[UIColor colorWithWhite:0.950 alpha:1.0],nil];
+    for (int i = 0; i < 3; i++) {
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(xPos,0, self.frame.size.width / 3, self.frame.size.height)];
+        view.backgroundColor = [scoreColors objectAtIndex:i];
+        [self addSubview:view];
+        xPos += view.frame.size.width;
+    }
     self.gameImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.frame.size.height * 0.125, self.frame.size.height * 0.75, self.frame.size.height * 0.75)];
     [self addSubview:self.gameImage];
 }
@@ -47,8 +55,29 @@
 
 }
 
-- (void) stopAnimations{
+- (void)stopAnimations{
+    CALayer *pLayer = [self.gameImage.layer presentationLayer];
+    CGRect frameStop = pLayer.frame;
+    self.imagePlace = frameStop.origin.x ;
+    NSLog(@"POITION : %f",self.imagePlace);
+    int score = [self determineScore:self.imagePlace];
+    [self.delegate scoreUpdater:score];
     [self.gameImage.layer removeAllAnimations];
+}
+
+- (int)determineScore:(float)position{
+    float div = self.frame.size.width / 3;
+    float div2 = div * 2;
+    float div3 = div * 3;
+    if (position < div) {
+        return 20;
+    }else if(position > div && position < div2){
+        return 10;
+    }else if(position > div2 && position < div3){
+        return 5;
+    }else{
+        return 0;
+    }
 }
 
 @end

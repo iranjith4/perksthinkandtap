@@ -11,6 +11,7 @@
 @protocol GamePlayProtocol<NSObject>
 
 - (void)animationEnds;
+- (void)scoreUpdater:(int)scoreVal;
 
 @end
 
@@ -18,7 +19,8 @@
 
 @property (nonatomic, strong) UIImageView *gameImage;
 @property (nonatomic) id<GamePlayProtocol> delegate;
--(void)setGameImageAtRandomPlace:(NSString *)imageName;
+@property (nonatomic) float imagePlace;
+
 - (void)moveGameImage:(NSString *)imageName animTime:(float)animTime;
 - (void) stopAnimations;
 
