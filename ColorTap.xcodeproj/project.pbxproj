@@ -39,6 +39,7 @@
 		C6A784BB1AD598290077ED0F /* tr_uf_3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A784A61AD598290077ED0F /* tr_uf_3@2x.png */; };
 		C6A784BC1AD598290077ED0F /* tr_w@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A784A71AD598290077ED0F /* tr_w@2x.png */; };
 		C6A784BF1AD5A1460077ED0F /* GamePlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A784BE1AD5A1460077ED0F /* GamePlayView.m */; };
+		C6B4D1271ADA2B1400BFC7C4 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6B4D1261ADA2B1400BFC7C4 /* GameKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		C6A784A71AD598290077ED0F /* tr_w@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tr_w@2x.png"; path = "Resources/Images/tr_w@2x.png"; sourceTree = "<group>"; };
 		C6A784BD1AD5A1460077ED0F /* GamePlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GamePlayView.h; path = Views/GamePlayView.h; sourceTree = "<group>"; };
 		C6A784BE1AD5A1460077ED0F /* GamePlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GamePlayView.m; path = Views/GamePlayView.m; sourceTree = "<group>"; };
+		C6B4D1261ADA2B1400BFC7C4 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6B4D1271ADA2B1400BFC7C4 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +120,7 @@
 		C607B2701AD2F13900400F25 = {
 			isa = PBXGroup;
 			children = (
+				C6B4D1261ADA2B1400BFC7C4 /* GameKit.framework */,
 				C607B27B1AD2F13900400F25 /* ColorTap */,
 				C607B2951AD2F13900400F25 /* ColorTapTests */,
 				C607B27A1AD2F13900400F25 /* Products */,
@@ -299,6 +303,12 @@
 				TargetAttributes = {
 					C607B2781AD2F13900400F25 = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = V454A296EQ;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 1;
+							};
+						};
 					};
 					C607B2911AD2F13900400F25 = {
 						CreatedOnToolsVersion = 6.2;
@@ -499,9 +509,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ColorTap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -509,9 +522,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ColorTap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

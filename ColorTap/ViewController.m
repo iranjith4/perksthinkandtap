@@ -10,6 +10,7 @@
 #import "ColorBubble.h"
 #import "Constants.h"
 #import "ScoreView.h"
+#import <GameKit/GameKit.h>
 
 @interface ViewController (){
     float xPos;
@@ -18,10 +19,12 @@
     GamePlayView *gamePlay;
     BOOL isTouched;
     BOOL isPoint;
+    BOOL isGameCenterEnabled;
     int loadedTag;
     int score;
     float animTime;
     UIButton *start;
+    NSString *scoreLeaderBoard;
 }
 
 @end
@@ -30,6 +33,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self authenticateLocalPlayer];
     xPos = 0;
     yPos = self.view.frame.size.height * 0.20; //TODO: Tobe changed after adding the previous views
     [self initValues];
@@ -47,9 +51,17 @@
 }
 
 - (void)addScoreBoard{
+    NSString *personalHigh;
+    NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
+    if ([settings objectForKey:@"personal_high"] != nil) {
+        personalHigh = [settings objectForKey:@"personal_high"];
+    }else{
+        personalHigh = @"0";
+    }
+    
     NSDictionary *scoreData = @{
                                 @"score" : @"0",
-                                @"personal_high" : @"430"
+                                @"personal_high" : personalHigh
                                 };
     scores = [[ScoreView alloc] initWithFrame:CGRectMake(0, yPos, self.view.frame.size.width, self.view.frame.size.height * 0.10) andData:scoreData];
     yPos += scores.frame.size.height + self.view.frame.size.height * 0.02;
@@ -139,9 +151,8 @@
         [self blockAllUserInteraction];
         [gamePlay stopAnimations];
         NSString *alertMessage = [NSString stringWithFormat:@"You missed the game. Your score is %d",score];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Game Over" message:alertMessage delegate:self cancelButtonTitle:@"Close" otherButtonTitles:nil];
+        [self showGameEndAlert:alertMessage andScore:[NSString stringWithFormat:@"%d",score]];
         [self resetScores];
-        [alert show];
     }
 }
 
@@ -155,6 +166,14 @@
 - (void)updateScore{
     score += 10;
     [scores updateGameScore:[NSString stringWithFormat:@"%d",score]];
+}
+
+- (void)updatePersonalHighScore:(int)gameScore{
+    NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
+    if (gameScore > [[settings objectForKey:@"personal_high"] intValue]) {
+        [settings setObject:[NSString stringWithFormat:@"%d",score] forKey:@"personal_high"];
+        [scores updatePersonalScore:[settings objectForKey:@"personal_high"]];
+    }
 }
 
 - (void)releaseAllUserInteractionBlock{
@@ -209,11 +228,55 @@
 -(void)animationEnds{
     if (!isTouched) {
         NSString *alertMessage = [NSString stringWithFormat:@"You missed the Touch. Your score is %d",score];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Game Over" message:alertMessage delegate:self cancelButtonTitle:@"Close" otherButtonTitles:nil];
+        [self showGameEndAlert:alertMessage andScore:[NSString stringWithFormat:@"%d",score]];
         [self resetScores];
         [self blockAllUserInteraction];
-        [alert show];
     }
+}
+
+- (void)showGameEndAlert:(NSString *)alertMsg andScore:(NSString*)scoreString;{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Game Over" message:alertMsg delegate:self cancelButtonTitle:@"Close" otherButtonTitles:nil];
+    [alert show];
+    [self updatePersonalHighScore:[scoreString intValue]];
+}
+
+#pragma mark - Game Center Methods
+
+- (void)authenticateLocalPlayer{
+    GKLocalPlayer *localPlayer = [GKLocalPlayer localPlayer];
+    
+    localPlayer.authenticateHandler = ^(UIViewController *viewController, NSError *error){
+        if (viewController != nil) {
+            [self presentViewController:viewController animated:YES completion:nil];
+        }
+        else{
+            if ([GKLocalPlayer localPlayer].authenticated) {
+                //_gameCenterEnabled = YES;
+                isGameCenterEnabled = YES;
+                
+                // Get the default leaderboard identifier.
+                [[GKLocalPlayer localPlayer] loadDefaultLeaderboardIdentifierWithCompletionHandler:^(NSString *leaderboardIdentifier, NSError *error) {
+                    
+                    if (error != nil) {
+                        NSLog(@"%@", [error localizedDescription]);
+                    }
+                    else{
+                       // _leaderboardIdentifier = leaderboardIdentifier;
+                        scoreLeaderBoard = leaderboardIdentifier;
+                    }
+                }];
+            }
+            
+            else{
+                //_gameCenterEnabled = NO;
+                isGameCenterEnabled = NO;
+            }
+        }
+    };
+}
+
+- (void)scoreToGamecenter{
+    
 }
 
 @end

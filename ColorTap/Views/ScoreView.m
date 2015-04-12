@@ -89,7 +89,18 @@
     frame.origin.x = self.frame.size.width * SPACE_FACTOR;
     frame.origin.y = yPos;
     self.score.frame = frame;
+}
 
+- (void)updatePersonalScore:(NSString *)scoreValue{
+    self.personalScore.text = scoreValue;
+    self.personalScore.font = [UIFont fontWithName:FONT_SEMIBOLD size:[Constants changeFontSizeWithHeight:IPHONE4_SIZE :21]];
+    self.personalScore.textColor = [UIColor grayColor];
+    self.personalScore.textAlignment = NSTextAlignmentRight;
+    [self.personalScore sizeToFit];
+    CGRect frame = self.personalScore.frame;
+    frame.origin.x = self.frame.size.width - self.frame.size.width * SPACE_FACTOR - frame.size.width;
+    frame.origin.y = yPos;
+    self.personalScore.frame = frame;
 }
 
 /*NOTE:
