@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "GamePlayView.h"
+#import "MenuView.h"
+#import <GameKit/GameKit.h>
 #define TIME_REDUCTION_FACTOR 0.05
 #define MAXIMUM_SPEED 1.5
 #define MINIMUM_SPEED 3.5
 
-@interface ViewController : UIViewController<GamePlayProtocol>
+@interface ViewController : UIViewController<GamePlayProtocol,MenuViewProtocol,GKGameCenterControllerDelegate>
 
 
 @end

@@ -37,6 +37,13 @@
 #define LEADERBOARD_SCORE @"grp.colortapscore"
 #define LEADERBOARD_TAPS @"grp.colortaptaps"
 
+//Menu Types
+typedef enum : NSUInteger {
+    MenuTypeGameCenter,
+    MenuTypeHowToPlay,
+    MenuTypeAppDetails,
+} MenuType;
+
 @interface Constants : NSObject
 
 +(float)changeFontSizeWithWidth:(CGSize)referenceDevice :(float)space;

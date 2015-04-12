@@ -10,8 +10,6 @@
 #import "ColorBubble.h"
 #import "Constants.h"
 #import "ScoreView.h"
-#import <GameKit/GameKit.h>
-#import "MenuView.h"
 
 @interface ViewController (){
     float xPos;
@@ -27,6 +25,7 @@
     float animTime;
     UIButton *start;
     NSString *scoreLeaderBoard;
+    MenuView *menus;
 }
 
 @end
@@ -96,7 +95,8 @@
 }
 
 - (void) addMenus{
-    MenuView *menus = [[MenuView alloc] initWithFrame:CGRectMake(0, yPos, self.view.frame.size.width, self.view.frame.size.height * 0.08)];
+    menus = [[MenuView alloc] initWithFrame:CGRectMake(0, yPos, self.view.frame.size.width, self.view.frame.size.height * 0.08)];
+    menus.delegate = self;
     [self.view addSubview:menus];
 }
 
@@ -198,6 +198,7 @@
         bubble.userInteractionEnabled = NO;
     }
     start.userInteractionEnabled = YES;
+    menus.userInteractionEnabled = YES;
 }
 
 -(void)loadAdMob{
@@ -329,6 +330,39 @@
             NSLog(@"%@", [error localizedDescription]);
         }
     }];
+}
+
+#pragma mark - menu clicks methods and delegate methods
+
+- (void)menuClicked:(MenuType)menuType{
+    switch (menuType) {
+        case MenuTypeGameCenter:
+            [self showGameCenter];
+            break;
+            
+        case MenuTypeHowToPlay:
+            
+            break;
+            
+        case MenuTypeAppDetails:
+            
+            break;
+            
+        default:
+            break;
+    }
+}
+
+- (void)showGameCenter{
+    GKGameCenterViewController *gcViewController = [[GKGameCenterViewController alloc] init];
+    gcViewController.gameCenterDelegate = self;
+    gcViewController.viewState = GKGameCenterViewControllerStateLeaderboards;
+    gcViewController.leaderboardIdentifier = LEADERBOARD_SCORE;
+    [self presentViewController:gcViewController animated:YES completion:nil];
+}
+
+-(void)gameCenterViewControllerDidFinish:(GKGameCenterViewController *)gameCenterViewController{
+    [gameCenterViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
