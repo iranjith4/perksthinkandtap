@@ -134,19 +134,6 @@
     int tagValue = (int)gesture.view.tag;
     NSLog(@"%d",tagValue);
     isTouched = YES;
-    switch (tagValue) {
-        case 0:
-            //TODO: Tap Handle for Red
-            break;
-        case 1:
-            //TODO: Tap Handle for Green
-            break;
-        case 2:
-            //TODO: Tap Handle for Blue
-            break;
-        default:
-            break;
-    }
     isPoint = NO;
     
     if (loadedTag == tagValue) {
@@ -305,6 +292,20 @@
 
 - (void)updateDataFromGameCenter{
     NSLog(@"UPDATE_GAMESCENTER_DATA");
+    
+    [GKLeaderboard loadLeaderboardsWithCompletionHandler:^(NSArray *leaderboards, NSError *error) {
+        if (error) {
+            NSLog(@"Getting leaderboard error : %@",error);
+        }else{
+            for (GKLeaderboard *board in leaderboards) {
+                if ([board.identifier  isEqual: LEADERBOARD_SCORE]) {
+                    GKScore *localScore = board.localPlayerScore;
+                        NSLog(@"HIGH SCORE : %lld",localScore.value);
+                }
+            }
+        }
+        
+    }];
     //TODO: Update the local copy of highscore from the game center logged in
 }
 
