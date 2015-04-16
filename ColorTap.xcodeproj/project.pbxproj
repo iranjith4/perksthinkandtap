@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C604E2771AE07C6600087024 /* logo_score.png in Resources */ = {isa = PBXBuildFile; fileRef = C604E2761AE07C6600087024 /* logo_score.png */; };
 		C607B27F1AD2F13900400F25 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C607B27E1AD2F13900400F25 /* main.m */; };
 		C607B2821AD2F13900400F25 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C607B2811AD2F13900400F25 /* AppDelegate.m */; };
 		C607B2851AD2F13900400F25 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C607B2841AD2F13900400F25 /* ViewController.m */; };
@@ -55,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C604E2761AE07C6600087024 /* logo_score.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo_score.png; path = Resources/scoreImage/logo_score.png; sourceTree = "<group>"; };
 		C607B2791AD2F13900400F25 /* ColorTap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorTap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C607B27D1AD2F13900400F25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C607B27E1AD2F13900400F25 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -123,6 +125,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C604E2751AE07AE200087024 /* scoreImage */ = {
+			isa = PBXGroup;
+			children = (
+				C604E2761AE07C6600087024 /* logo_score.png */,
+			);
+			name = scoreImage;
+			sourceTree = "<group>";
+		};
 		C607B2701AD2F13900400F25 = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +241,7 @@
 		C6A784911AD598170077ED0F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C604E2751AE07AE200087024 /* scoreImage */,
 				C6A784921AD5981F0077ED0F /* Images */,
 			);
 			name = Resources;
@@ -372,6 +383,7 @@
 				C6A784B41AD598290077ED0F /* sq_uf_3@2x.png in Resources */,
 				C6A784AB1AD598290077ED0F /* ci_uf_1@2x.png in Resources */,
 				C607B28A1AD2F13900400F25 /* Images.xcassets in Resources */,
+				C604E2771AE07C6600087024 /* logo_score.png in Resources */,
 				C6A784A81AD598290077ED0F /* ci_f_1@2x.png in Resources */,
 				C6A784B11AD598290077ED0F /* sq_f_3@2x.png in Resources */,
 			);
@@ -475,7 +487,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -510,7 +522,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -527,6 +539,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -540,6 +553,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

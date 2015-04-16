@@ -49,5 +49,6 @@ typedef enum : NSUInteger {
 +(float)changeFontSizeWithWidth:(CGSize)referenceDevice :(float)space;
 +(float)changeFontSizeWithHeight:(CGSize)referenceDevice :(float)space;
 +(NSDictionary *)getRandomGameImage;
++ (UIImage *) imageWithView:(UIView *)view;
 
 @end

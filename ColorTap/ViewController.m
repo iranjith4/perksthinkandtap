@@ -10,6 +10,7 @@
 #import "ColorBubble.h"
 #import "Constants.h"
 #import "ScoreView.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface ViewController (){
     float xPos;
@@ -237,10 +238,29 @@
 }
 
 - (void)showGameEndAlert:(NSString *)alertMsg andScore:(NSString*)scoreString;{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Game Over" message:alertMsg delegate:self cancelButtonTitle:@"Close" otherButtonTitles:@"share",nil];
-    [alert show];
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Game Over"
+                                                                   message:alertMsg
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIPopoverPresentationController *popover = alert.popoverPresentationController;
+    if (popover)
+    {
+        popover.sourceView = scores;
+        popover.sourceRect = scores.bounds;
+        popover.permittedArrowDirections = UIPopoverArrowDirectionAny;
+    }
+    
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction * action) {}];
+    UIAlertAction* share = [UIAlertAction actionWithTitle:@"Share" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        [self shareScore:scoreString];
+    }];
+    [alert addAction:defaultAction];
+    [alert addAction:share];
+
+    [self presentViewController:alert animated:YES completion:nil];
+    
     [self updateTaps];
-    // Delete this tap alert after checking
     [self updatePersonalHighScore:[scoreString intValue]];
 }
 
@@ -372,23 +392,10 @@
 }
 
 
-#pragma mark -m Score Alert view delegate
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    switch (buttonIndex) {
-        case 1:
-            [self shareScore];
-            break;
-            
-        default:
-            break;
-    }
-}
-
-- (void)shareScore{
-    NSString *textToShare = [NSString stringWithFormat:@"Yaay ! I scored %d in Think and Tap Game. Dare to Challenge me ?",score];
-    NSURL *myWebsite = [NSURL URLWithString:@"http://www.iranjith4.com/thinkandtap"];
-    
-    NSArray *objectsToShare = @[textToShare,myWebsite];
+- (void)shareScore :(NSString *)scr{
+    UIImage *shareImage = [self scoreCreator:scr];
+    NSString *text = [NSString stringWithFormat:@"Download Think & Tap at App Store. http://www.iranjith4.com/thinkandtap"];
+    NSArray *objectsToShare = @[shareImage,text];
     
     UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:objectsToShare applicationActivities:nil];
     
@@ -401,6 +408,31 @@
     activityVC.excludedActivityTypes = excludeActivities;
     
     [activityVC completionWithItemsHandler];
-    [self presentViewController:activityVC animated:YES completion:nil];
+    //if iPhone
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        [self presentViewController:activityVC animated:YES completion:nil];
+    }
+    //if iPad
+    else {
+        // Change Rect to position Popover
+        UIPopoverController *popup = [[UIPopoverController alloc] initWithContentViewController:activityVC];
+        [popup presentPopoverFromRect:CGRectMake(self.view.frame.size.width/2, self.view.frame.size.height/4, 0, 0)inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    }
 }
+
+- (UIImage *) scoreCreator:(NSString *)scoreString{
+    UIImageView *temp = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.width)];
+    temp.image = [UIImage imageNamed:@"logo_score.png"];
+    UIView *view = [[UIView alloc] initWithFrame:temp.frame];
+    [view addSubview:temp];
+    UILabel *scoreLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, temp.frame.size.width * 0.27, temp.frame.size.width,temp.frame.size.width * 0.225)];
+    [scoreLabel setText:scoreString];
+    scoreLabel.textAlignment = NSTextAlignmentCenter;
+    scoreLabel.font =  [UIFont fontWithName:FONT_BOLD size:60];
+    scoreLabel.textColor = [UIColor orangeColor];
+    [view addSubview:scoreLabel];
+    return [Constants imageWithView:view];
+}
+
+
 @end
