@@ -291,22 +291,29 @@
 }
 
 - (void)updateDataFromGameCenter{
-    NSLog(@"UPDATE_GAMESCENTER_DATA");
+    NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
     
-    [GKLeaderboard loadLeaderboardsWithCompletionHandler:^(NSArray *leaderboards, NSError *error) {
-        if (error) {
-            NSLog(@"Getting leaderboard error : %@",error);
-        }else{
-            for (GKLeaderboard *board in leaderboards) {
-                if ([board.identifier  isEqual: LEADERBOARD_SCORE]) {
-                    GKScore *localScore = board.localPlayerScore;
-                        NSLog(@"HIGH SCORE : %lld",localScore.value);
-                }
-            }
+    [GKLeaderboard loadLeaderboardsWithCompletionHandler:^(NSArray *leaderboards, NSError *nsError) {
+        if( nsError != nil )
+        {
+            return ;
         }
         
-    }];
-    //TODO: Update the local copy of highscore from the game center logged in
+        for( GKLeaderboard* board in leaderboards )
+        {
+            [board loadScoresWithCompletionHandler:^(NSArray *scoresArray, NSError *error) {
+                if ([board.identifier isEqualToString:LEADERBOARD_TAPS]) {
+                    NSLog(@"TAPS %lld",board.localPlayerScore.value);
+                    [settings setObject:[NSString stringWithFormat:@"%lld",board.localPlayerScore.value] forKey:@"taps"];
+                }
+                if ([board.identifier isEqualToString:LEADERBOARD_SCORE]) {
+                    NSLog(@"SCORE %lld",board.localPlayerScore.value);
+                    [settings setObject:[NSString stringWithFormat:@"%lld",board.localPlayerScore.value] forKey:@"personal_high"];
+                    [scores updatePersonalScore:[settings objectForKey:@"personal_high"]];
+                }
+            }] ;
+        }
+    }] ;
 }
 
 - (void)scoreToGamecenter:(int)scoreValue{
