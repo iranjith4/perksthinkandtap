@@ -234,15 +234,10 @@
 }
 
 - (void)showGameEndAlert:(NSString *)alertMsg andScore:(NSString*)scoreString;{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Game Over" message:alertMsg delegate:self cancelButtonTitle:@"Close" otherButtonTitles:nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Game Over" message:alertMsg delegate:self cancelButtonTitle:@"Close" otherButtonTitles:@"share",nil];
     [alert show];
     [self updateTaps];
     // Delete this tap alert after checking
-    NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
-    if ([settings objectForKey:@"taps"] != nil) {
-        UIAlertView *tapAlert = [[UIAlertView alloc] initWithTitle:@"Game Over" message:[NSString stringWithFormat:@"TAPS : %@",[settings objectForKey:@"taps"]] delegate:self cancelButtonTitle:@"Close" otherButtonTitles:nil];
-        [tapAlert show];
-    }
     [self updatePersonalHighScore:[scoreString intValue]];
 }
 
@@ -373,4 +368,36 @@
     [gameCenterViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
+
+#pragma mark -m Score Alert view delegate
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    switch (buttonIndex) {
+        case 1:
+            [self shareScore];
+            break;
+            
+        default:
+            break;
+    }
+}
+
+- (void)shareScore{
+    NSString *textToShare = [NSString stringWithFormat:@"Yaay ! I scored %d in Think and Tap Game. Dare to Challenge me ?",score];
+    NSURL *myWebsite = [NSURL URLWithString:@"http://www.iranjith4.com/thinkandtap"];
+    
+    NSArray *objectsToShare = @[textToShare,myWebsite];
+    
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:objectsToShare applicationActivities:nil];
+    
+    NSArray *excludeActivities = @[UIActivityTypeAirDrop,
+                                   UIActivityTypeAssignToContact,
+                                   UIActivityTypeSaveToCameraRoll,
+                                   UIActivityTypePostToFlickr,
+                                   UIActivityTypePostToVimeo];
+    
+    activityVC.excludedActivityTypes = excludeActivities;
+    
+    [activityVC completionWithItemsHandler];
+    [self presentViewController:activityVC animated:YES completion:nil];
+}
 @end

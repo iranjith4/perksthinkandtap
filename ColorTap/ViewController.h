@@ -14,7 +14,7 @@
 #define MAXIMUM_SPEED 1.5
 #define MINIMUM_SPEED 3.5
 
-@interface ViewController : UIViewController<GamePlayProtocol,MenuViewProtocol,GKGameCenterControllerDelegate>
+@interface ViewController : UIViewController<GamePlayProtocol,MenuViewProtocol,GKGameCenterControllerDelegate,UIAlertViewDelegate>
 
 
 @end
