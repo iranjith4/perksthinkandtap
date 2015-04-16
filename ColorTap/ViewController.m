@@ -34,9 +34,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
     [self authenticateLocalPlayer];
     xPos = 0;
-    yPos = self.view.frame.size.height * 0.20; //TODO: Tobe changed after adding the previous views
+    yPos = self.view.frame.size.height * 0.05; //TODO: Tobe changed after adding the previous views
     [self initValues];
     [self addScoreBoard];
     [self gameView];
