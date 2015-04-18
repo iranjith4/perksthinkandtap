@@ -259,9 +259,16 @@
     [alert addAction:share];
 
     [self presentViewController:alert animated:YES completion:nil];
-    
     [self updateTaps];
     [self updatePersonalHighScore:[scoreString intValue]];
+    [self updateAchievements];
+}
+
+- (void)updateAchievements{
+    NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
+    long long int tempTap = [[settings objectForKey:@"taps"] longLongValue];
+    int tempScore = [[settings objectForKey:@"personal_high"] intValue];
+    [Constants calculateAchievementProgressForTap:tempTap andScore:tempScore];
 }
 
 - (void)updateTaps{
@@ -289,20 +296,6 @@
             if ([GKLocalPlayer localPlayer].authenticated) {
                 isGameCenterEnabled = YES;
                 [self updateDataFromGameCenter];
-//
-//                // Get the default leaderboard identifier.
-//                [[GKLocalPlayer localPlayer] loadDefaultLeaderboardIdentifierWithCompletionHandler:^(NSString *leaderboardIdentifier, NSError *error) {
-//                    
-//                    if (error != nil) {
-//                        NSLog(@"%@", [error localizedDescription]);
-//                    }
-//                    else{
-//                        scoreLeaderBoard = leaderboardIdentifier;
-//                    }
-//                }];
-//            }
-//            else{
-//                isGameCenterEnabled = NO;
             }
         }
     };

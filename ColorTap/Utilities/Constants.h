@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <GameKit/GameKit.h>
 
 // Game Configurations
 #define NUMBER_OF_COLORS 3
@@ -50,5 +51,7 @@ typedef enum : NSUInteger {
 +(float)changeFontSizeWithHeight:(CGSize)referenceDevice :(float)space;
 +(NSDictionary *)getRandomGameImage;
 + (UIImage *) imageWithView:(UIView *)view;
++(void)calculateAchievementProgressForTap:(long long int)taps andScore:(int)score;
++(void)clearAllAchivements;
 
 @end
