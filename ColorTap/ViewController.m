@@ -140,6 +140,23 @@
     isTouched = YES;
     isPoint = NO;
     
+    CGRect tempFrame = gesture.view.frame;
+    CGRect animFrame = tempFrame;
+    animFrame.size.width -= 1;
+    animFrame.size.height -= 1;
+    [UIView animateWithDuration:0.2f
+                     animations:^
+     {
+         [gesture.view setAlpha:0.5f];
+         gesture.view.frame = animFrame;
+     }
+                     completion:^(BOOL finished)
+     {
+         [gesture.view setAlpha:1.0f];
+         gesture.view.frame = tempFrame;
+            }
+     ];
+    
     if (loadedTag == tagValue) {
         
         // Order should not be changed !
@@ -360,7 +377,7 @@
             break;
             
         case MenuTypeHowToPlay:
-            
+            [self loadHowToPlay];
             break;
             
         case MenuTypeAppDetails:
@@ -378,6 +395,10 @@
     gcViewController.viewState = GKGameCenterViewControllerStateLeaderboards;
     gcViewController.leaderboardIdentifier = LEADERBOARD_SCORE;
     [self presentViewController:gcViewController animated:YES completion:nil];
+}
+
+- (void)loadHowToPlay{
+    
 }
 
 -(void)gameCenterViewControllerDidFinish:(GKGameCenterViewController *)gameCenterViewController{
