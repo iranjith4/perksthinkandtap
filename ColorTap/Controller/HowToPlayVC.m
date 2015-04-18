@@ -67,11 +67,11 @@
     UIImage *image1 = [UIImage imageNamed:@"tut1.png"];
     UIImage *image2 = [UIImage imageNamed:@"tut2.jpg"];
     UIImage *image3 = [UIImage imageNamed:@"tut3.jpg"];
-    
+    UIImage *image4 = [UIImage imageNamed:@"tut4.png"];
     
     
     UIImageView *tut1 = [[UIImageView alloc] initWithFrame:CGRectMake(self.view.frame.size.width * 0.05, yPos, [self getNewSizeForImage:image1].width, [self getNewSizeForImage:image1].height)];
-    tut1.backgroundColor = [UIColor orangeColor];
+    tut1.image = [UIImage imageNamed:@"tut1.png"];
     [scroll addSubview:tut1];
     yPos += tut1.frame.size.height + 20;
     
@@ -86,7 +86,7 @@
     
     
     UIImageView *tut2 = [[UIImageView alloc] initWithFrame:CGRectMake(self.view.frame.size.width * 0.05, yPos, [self getNewSizeForImage:image2].width, [self getNewSizeForImage:image1].height)];
-    tut2.backgroundColor = [UIColor orangeColor];
+    tut2.image = [UIImage imageNamed:@"tut2.png"];
     [scroll addSubview:tut2];
     yPos += tut2.frame.size.height + 20;
     
@@ -99,7 +99,7 @@
     yPos += 30;
     
     UIImageView *tut3= [[UIImageView alloc] initWithFrame:CGRectMake(self.view.frame.size.width * 0.05, yPos, [self getNewSizeForImage:image3].width, [self getNewSizeForImage:image1].height)];
-    tut3.backgroundColor = [UIColor orangeColor];
+    tut3.image = [UIImage imageNamed:@"tut3.png"];
     [scroll addSubview:tut3];
     yPos += tut3.frame.size.height + 20;
     
@@ -111,8 +111,8 @@
     [scroll addSubview:scoring];
     yPos += 30;
     
-    UIImageView *tut4= [[UIImageView alloc] initWithFrame:CGRectMake(self.view.frame.size.width * 0.05, yPos, [self getNewSizeForImage:image3].width, [self getNewSizeForImage:image1].height)];
-    tut4.backgroundColor = [UIColor orangeColor];
+    UIImageView *tut4= [[UIImageView alloc] initWithFrame:CGRectMake(self.view.frame.size.width * 0.05, yPos, [self getNewSizeForImage:image4].width, [self getNewSizeForImage:image4].height)];
+    tut4.image = [UIImage imageNamed:@"tut4.png"];
     [scroll addSubview:tut4];
     yPos += tut4.frame.size.height + 20;
     

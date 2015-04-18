@@ -58,6 +58,7 @@
 		C6B4D1271ADA2B1400BFC7C4 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6B4D1261ADA2B1400BFC7C4 /* GameKit.framework */; };
 		C6D4974C1ADA9BB200B59313 /* MenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = C6D4974B1ADA9BB200B59313 /* MenuView.m */; };
 		C6D4974F1ADA9C6A00B59313 /* MenuButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C6D4974E1ADA9C6A00B59313 /* MenuButton.m */; };
+		C6F363DD1AE31E6100BD4D4F /* tut4.png in Resources */ = {isa = PBXBuildFile; fileRef = C6F363DC1AE31E6100BD4D4F /* tut4.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +148,7 @@
 		C6D4974B1ADA9BB200B59313 /* MenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuView.m; path = Views/MenuView.m; sourceTree = "<group>"; };
 		C6D4974D1ADA9C6A00B59313 /* MenuButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuButton.h; path = Views/MenuButton.h; sourceTree = "<group>"; };
 		C6D4974E1ADA9C6A00B59313 /* MenuButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuButton.m; path = Views/MenuButton.m; sourceTree = "<group>"; };
+		C6F363DC1AE31E6100BD4D4F /* tut4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tut4.png; path = Resources/scoreImage/tut4.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +182,7 @@
 				C634C8651AE2BE0600C42BA1 /* tut2.png */,
 				C634C86D1AE2CAAD00C42BA1 /* logo.jpg */,
 				C634C8661AE2BE0600C42BA1 /* tut3.png */,
+				C6F363DC1AE31E6100BD4D4F /* tut4.png */,
 				C604E2761AE07C6600087024 /* logo_score.png */,
 				C634C85F1AE2958100C42BA1 /* gc-icon.png */,
 			);
@@ -490,6 +493,7 @@
 				C6A784AB1AD598290077ED0F /* ci_uf_1@2x.png in Resources */,
 				C607B28A1AD2F13900400F25 /* Images.xcassets in Resources */,
 				C634C8681AE2BE0600C42BA1 /* tut2.png in Resources */,
+				C6F363DD1AE31E6100BD4D4F /* tut4.png in Resources */,
 				C604E2771AE07C6600087024 /* logo_score.png in Resources */,
 				C6A784A81AD598290077ED0F /* ci_f_1@2x.png in Resources */,
 				C6A784B11AD598290077ED0F /* sq_f_3@2x.png in Resources */,

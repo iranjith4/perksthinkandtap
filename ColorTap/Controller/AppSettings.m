@@ -297,7 +297,14 @@
     [scroll addSubview:write];
     yPos += write.frame.size.height + 30;
     
-    
+    UILabel *madein = [[UILabel alloc] initWithFrame:CGRectMake(10, yPos, self.view.frame.size.width - 20, 30)];
+    madein.text = @"iranjith4.com/thinkandtap";
+    madein.numberOfLines = 1;
+    madein.font = [UIFont fontWithName:FONT_REGULAR size:[Constants changeFontSizeWithWidth:IPHONE5_SIZE :15]];
+    madein.textAlignment = NSTextAlignmentCenter;
+    madein.textColor = [UIColor grayColor];
+    [scroll addSubview:madein];
+    yPos += 40;
     
     
     scroll.contentSize = CGSizeMake(self.view.frame.size.width, yPos);
