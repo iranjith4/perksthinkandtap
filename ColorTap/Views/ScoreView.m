@@ -30,7 +30,7 @@
     self.scoreLabel = [[UILabel alloc] init];
     self.scoreLabel.text = @"Score";
     self.scoreLabel.font = [UIFont fontWithName:FONT_LIGHT size:[Constants changeFontSizeWithHeight:IPHONE4_SIZE :11]];
-    self.scoreLabel.textColor = [UIColor orangeColor];
+    self.scoreLabel.textColor = [UIColor grayColor];
     self.scoreLabel.textAlignment = NSTextAlignmentLeft;
     [self.scoreLabel sizeToFit];
     CGRect frame = self.scoreLabel.frame;
@@ -44,7 +44,7 @@
     self.score = [[UILabel alloc] init];
     self.score.text = [data objectForKey:@"score"];
     self.score.font = [UIFont fontWithName:FONT_SEMIBOLD size:[Constants changeFontSizeWithHeight:IPHONE4_SIZE :21]];
-    self.score.textColor = [UIColor grayColor];
+    self.score.textColor = [UIColor colorWithRed:0.275 green:0.604 blue:0.918 alpha:1.000];
     self.score.textAlignment = NSTextAlignmentLeft;
     [self.score sizeToFit];
     frame = self.score.frame;
@@ -56,7 +56,7 @@
     self.personalLabel = [[UILabel alloc] init];
     self.personalLabel.text = @"Personal High";
     self.personalLabel.font = [UIFont fontWithName:FONT_LIGHT size:[Constants changeFontSizeWithHeight:IPHONE4_SIZE :11]];
-    self.personalLabel.textColor = [UIColor orangeColor];
+    self.personalLabel.textColor = [UIColor grayColor];
     self.personalLabel.textAlignment = NSTextAlignmentRight;
     [self.personalLabel sizeToFit];
     frame = self.personalLabel.frame;
@@ -68,7 +68,7 @@
     self.personalScore = [[UILabel alloc] init];
     self.personalScore.text = [data objectForKey:@"personal_high"];
     self.personalScore.font = [UIFont fontWithName:FONT_SEMIBOLD size:[Constants changeFontSizeWithHeight:IPHONE4_SIZE :21]];
-    self.personalScore.textColor = [UIColor grayColor];
+    self.personalScore.textColor = [UIColor colorWithRed:0.271 green:0.600 blue:0.910 alpha:1.000];
     self.personalScore.textAlignment = NSTextAlignmentLeft;
     [self.personalScore sizeToFit];
     frame = self.personalScore.frame;
@@ -82,7 +82,7 @@
 - (void)updateGameScore:(NSString *)scoreValue{
     self.score.text = scoreValue;
     self.score.font = [UIFont fontWithName:FONT_SEMIBOLD size:[Constants changeFontSizeWithHeight:IPHONE4_SIZE :21]];
-    self.score.textColor = [UIColor grayColor];
+    self.score.textColor = [UIColor colorWithRed:0.275 green:0.604 blue:0.918 alpha:1.000];
     self.score.textAlignment = NSTextAlignmentLeft;
     [self.score sizeToFit];
     CGRect frame = self.score.frame;
@@ -94,7 +94,7 @@
 - (void)updatePersonalScore:(NSString *)scoreValue{
     self.personalScore.text = scoreValue;
     self.personalScore.font = [UIFont fontWithName:FONT_SEMIBOLD size:[Constants changeFontSizeWithHeight:IPHONE4_SIZE :21]];
-    self.personalScore.textColor = [UIColor grayColor];
+    self.personalScore.textColor = [UIColor colorWithRed:0.275 green:0.604 blue:0.918 alpha:1.000];
     self.personalScore.textAlignment = NSTextAlignmentRight;
     [self.personalScore sizeToFit];
     CGRect frame = self.personalScore.frame;

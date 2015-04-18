@@ -17,6 +17,10 @@
 		C607B2991AD2F13900400F25 /* ColorTapTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C607B2981AD2F13900400F25 /* ColorTapTests.m */; };
 		C607B2A71AD310FF00400F25 /* ColorBubble.m in Sources */ = {isa = PBXBuildFile; fileRef = C607B2A61AD310FF00400F25 /* ColorBubble.m */; };
 		C607B2AB1AD3113300400F25 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = C607B2AA1AD3113300400F25 /* Constants.m */; };
+		C634C8581AE283E100C42BA1 /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C634C8571AE283E100C42BA1 /* SoundManager.m */; };
+		C634C85C1AE2865600C42BA1 /* click2.wav in Resources */ = {isa = PBXBuildFile; fileRef = C634C85B1AE2865600C42BA1 /* click2.wav */; };
+		C634C85E1AE2890900C42BA1 /* wongfire.wav in Resources */ = {isa = PBXBuildFile; fileRef = C634C85D1AE2890800C42BA1 /* wongfire.wav */; };
+		C634C8601AE2958100C42BA1 /* gc-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C634C85F1AE2958100C42BA1 /* gc-icon.png */; };
 		C671D5451AD458D900C6C77B /* ScoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = C671D5441AD458D900C6C77B /* ScoreView.m */; };
 		C6A784A81AD598290077ED0F /* ci_f_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A784931AD598290077ED0F /* ci_f_1@2x.png */; };
 		C6A784A91AD598290077ED0F /* ci_f_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A784941AD598290077ED0F /* ci_f_2@2x.png */; };
@@ -74,6 +78,11 @@
 		C607B2A61AD310FF00400F25 /* ColorBubble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorBubble.m; path = Views/ColorBubble.m; sourceTree = "<group>"; };
 		C607B2A91AD3113300400F25 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = Utilities/Constants.h; sourceTree = "<group>"; };
 		C607B2AA1AD3113300400F25 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Constants.m; path = Utilities/Constants.m; sourceTree = "<group>"; };
+		C634C8561AE283E100C42BA1 /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoundManager.h; path = thirdparty/SoundManager.h; sourceTree = "<group>"; };
+		C634C8571AE283E100C42BA1 /* SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SoundManager.m; path = thirdparty/SoundManager.m; sourceTree = "<group>"; };
+		C634C85B1AE2865600C42BA1 /* click2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = click2.wav; sourceTree = "<group>"; };
+		C634C85D1AE2890800C42BA1 /* wongfire.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wongfire.wav; sourceTree = "<group>"; };
+		C634C85F1AE2958100C42BA1 /* gc-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gc-icon.png"; path = "Resources/scoreImage/gc-icon.png"; sourceTree = "<group>"; };
 		C671D5431AD458D900C6C77B /* ScoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScoreView.h; path = Views/ScoreView.h; sourceTree = "<group>"; };
 		C671D5441AD458D900C6C77B /* ScoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScoreView.m; path = Views/ScoreView.m; sourceTree = "<group>"; };
 		C6A784931AD598290077ED0F /* ci_f_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ci_f_1@2x.png"; path = "Resources/Images/ci_f_1@2x.png"; sourceTree = "<group>"; };
@@ -129,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				C604E2761AE07C6600087024 /* logo_score.png */,
+				C634C85F1AE2958100C42BA1 /* gc-icon.png */,
 			);
 			name = scoreImage;
 			sourceTree = "<group>";
@@ -155,6 +165,7 @@
 		C607B27B1AD2F13900400F25 /* ColorTap */ = {
 			isa = PBXGroup;
 			children = (
+				C634C8551AE283D700C42BA1 /* thirdparty */,
 				C6A784911AD598170077ED0F /* Resources */,
 				C607B2A81AD3111100400F25 /* Utilities */,
 				C607B2A41AD310BD00400F25 /* Controller */,
@@ -238,9 +249,28 @@
 			name = Utilities;
 			sourceTree = "<group>";
 		};
+		C634C8521AE2830700C42BA1 /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+				C634C85D1AE2890800C42BA1 /* wongfire.wav */,
+				C634C85B1AE2865600C42BA1 /* click2.wav */,
+			);
+			name = sounds;
+			sourceTree = "<group>";
+		};
+		C634C8551AE283D700C42BA1 /* thirdparty */ = {
+			isa = PBXGroup;
+			children = (
+				C634C8561AE283E100C42BA1 /* SoundManager.h */,
+				C634C8571AE283E100C42BA1 /* SoundManager.m */,
+			);
+			name = thirdparty;
+			sourceTree = "<group>";
+		};
 		C6A784911AD598170077ED0F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C634C8521AE2830700C42BA1 /* sounds */,
 				C604E2751AE07AE200087024 /* scoreImage */,
 				C6A784921AD5981F0077ED0F /* Images */,
 			);
@@ -374,10 +404,13 @@
 				C6A784B51AD598290077ED0F /* sq_w@2x.png in Resources */,
 				C6A784B61AD598290077ED0F /* tr_f_1@2x.png in Resources */,
 				C607B28D1AD2F13900400F25 /* LaunchScreen.xib in Resources */,
+				C634C85E1AE2890900C42BA1 /* wongfire.wav in Resources */,
 				C6A784AF1AD598290077ED0F /* sq_f_1@2x.png in Resources */,
 				C6A784B91AD598290077ED0F /* tr_uf_1@2x.png in Resources */,
 				C6A784B81AD598290077ED0F /* tr_f_3@2x.png in Resources */,
 				C6A784AA1AD598290077ED0F /* ci_f_3@2x.png in Resources */,
+				C634C8601AE2958100C42BA1 /* gc-icon.png in Resources */,
+				C634C85C1AE2865600C42BA1 /* click2.wav in Resources */,
 				C6A784B31AD598290077ED0F /* sq_uf_2@2x.png in Resources */,
 				C6A784B21AD598290077ED0F /* sq_uf_1@2x.png in Resources */,
 				C6A784B41AD598290077ED0F /* sq_uf_3@2x.png in Resources */,
@@ -406,6 +439,7 @@
 				C607B2AB1AD3113300400F25 /* Constants.m in Sources */,
 				C6A784BF1AD5A1460077ED0F /* GamePlayView.m in Sources */,
 				C6D4974F1ADA9C6A00B59313 /* MenuButton.m in Sources */,
+				C634C8581AE283E100C42BA1 /* SoundManager.m in Sources */,
 				C671D5451AD458D900C6C77B /* ScoreView.m in Sources */,
 				C607B2851AD2F13900400F25 /* ViewController.m in Sources */,
 				C607B2821AD2F13900400F25 /* AppDelegate.m in Sources */,

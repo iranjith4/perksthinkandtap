@@ -11,6 +11,7 @@
 #import "Constants.h"
 #import "ScoreView.h"
 #import <QuartzCore/QuartzCore.h>
+#import "SoundManager.h"
 
 @interface ViewController (){
     float xPos;
@@ -27,6 +28,8 @@
     UIButton *start;
     NSString *scoreLeaderBoard;
     MenuView *menus;
+    UIImageView *gc;
+    UILabel *gcLabel;
 }
 
 @end
@@ -46,8 +49,9 @@
     [self gameView];
     [self loadColorBubbles];
     [self addStartButton];
+    [self addGCWarning];
     [self addMenus];
-    [self loadAdMob];
+   // [self loadAdMob];
     [self blockAllUserInteraction];
 }
 - (void) initValues{
@@ -55,6 +59,13 @@
     animTime = MINIMUM_SPEED; // This is the starting game speed
     score = 0;
     taps = 0;
+    [SoundManager sharedManager].allowsBackgroundMusic = YES;
+    [[SoundManager sharedManager] prepareToPlay];
+    //Set sound ON / OFF
+    NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
+    if ([settings objectForKey:@"sound"] == nil) {
+        [settings setObject:[NSNumber numberWithBool:YES] forKey:@"sound"];
+    }
 }
 
 - (void)addScoreBoard{
@@ -70,15 +81,15 @@
                                 @"score" : @"0",
                                 @"personal_high" : personalHigh
                                 };
-    scores = [[ScoreView alloc] initWithFrame:CGRectMake(0, yPos, self.view.frame.size.width, self.view.frame.size.height * 0.10) andData:scoreData];
-    yPos += scores.frame.size.height + self.view.frame.size.height * 0.02;
+    scores = [[ScoreView alloc] initWithFrame:CGRectMake(0, yPos, self.view.frame.size.width, self.view.frame.size.height * 0.12) andData:scoreData];
+    yPos += scores.frame.size.height + self.view.frame.size.height * 0.06;
     [self.view addSubview:scores];
 }
 
 - (void)gameView{
-    gamePlay = [[GamePlayView alloc] initWithFrame:CGRectMake(0, yPos, self.view.frame.size.width, self.view.frame.size.height * 0.12)];
+    gamePlay = [[GamePlayView alloc] initWithFrame:CGRectMake(0, yPos, self.view.frame.size.width, self.view.frame.size.height * 0.14)];
     [self.view addSubview:gamePlay];
-    yPos += gamePlay.frame.size.height + self.view.frame.size.height * 0.05;
+    yPos += gamePlay.frame.size.height + self.view.frame.size.height * 0.1;
     gamePlay.delegate = self;
    // [gamePlay moveGameImage:@"tr_f_2.png"];
 }
@@ -98,8 +109,21 @@
     [self.view addSubview:start];
 }
 
+- (void)addGCWarning{
+    gc = [[UIImageView alloc] initWithFrame:CGRectMake(10, yPos, self.view.frame.size.height * 0.05, self.view.frame.size.height * 0.05)];
+    [gc setImage:[UIImage imageNamed:@"gc-icon"]];
+    [self.view addSubview:gc];
+    
+    gcLabel = [[UILabel alloc] initWithFrame:CGRectMake(gc.frame.origin.x + gc.frame.size.width + 5, yPos, self.view.frame.size.width - gc.frame.origin.x - gc.frame.size.width - 10, gc.frame.size.height)];
+    gcLabel.text = @"Log in to Game Center App to avoid local high score loss.";
+    gcLabel.textColor = [UIColor lightGrayColor];
+    gcLabel.font = [UIFont fontWithName:FONT_REGULAR size:[Constants changeFontSizeWithWidth:IPHONE6PLUS_SIZE :13]];
+    [self.view addSubview:gcLabel];
+    yPos += gc.frame.size.height ;
+}
+
 - (void) addMenus{
-    menus = [[MenuView alloc] initWithFrame:CGRectMake(0, yPos, self.view.frame.size.width, self.view.frame.size.height * 0.08)];
+    menus = [[MenuView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - self.view.frame.size.height * 0.12 , self.view.frame.size.width, self.view.frame.size.height * 0.09)];
     menus.delegate = self;
     [self.view addSubview:menus];
 }
@@ -160,11 +184,12 @@
     if (loadedTag == tagValue) {
         
         // Order should not be changed !
-        
+        [self playSound:0];
         isPoint = YES;
         [gamePlay stopAnimations]; // This should be called after setting isPoint to YES
         [self startGame];
     }else{
+        [self playSound:1];
         [self blockAllUserInteraction];
         [gamePlay stopAnimations];
         NSString *alertMessage = [NSString stringWithFormat:@"You missed the game. Your score is %d",score];
@@ -312,6 +337,8 @@
         else{
             if ([GKLocalPlayer localPlayer].authenticated) {
                 isGameCenterEnabled = YES;
+                gc.hidden = YES;
+                gcLabel.hidden = YES;
                 [self updateDataFromGameCenter];
             }
         }
@@ -443,10 +470,31 @@
     [scoreLabel setText:scoreString];
     scoreLabel.textAlignment = NSTextAlignmentCenter;
     scoreLabel.font =  [UIFont fontWithName:FONT_BOLD size:60];
-    scoreLabel.textColor = [UIColor orangeColor];
+    scoreLabel.textColor = [UIColor colorWithRed:0.275 green:0.604 blue:0.918 alpha:1.000];
     [view addSubview:scoreLabel];
     return [Constants imageWithView:view];
 }
+
+- (void)playSound:(int)tag{
+    BOOL playSound;
+    NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
+    playSound = [[settings objectForKey:@"sound"] boolValue];
+    
+    if (playSound) {
+        switch (tag) {
+            case 0:
+                [[SoundManager sharedManager] playSound:@"click2.wav" looping:NO];
+                break;
+                
+            case 1:
+                [[SoundManager sharedManager] playSound:@"wongfire.wav" looping:NO];
+                break;
+                
+            default:
+                break;
+        }
+    }
+    }
 
 
 @end
