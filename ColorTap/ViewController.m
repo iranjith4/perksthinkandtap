@@ -165,7 +165,7 @@
 
 - (void)loadColorBubbles{
     self.view.backgroundColor = [UIColor whiteColor];
-    NSArray *colorsArray = [NSArray arrayWithObjects:[UIColor colorWithRed:0.604 green:0.576 blue:0.173 alpha:1.000],[UIColor colorWithRed:0.157 green:0.137 blue:0.388 alpha:1.000],[UIColor colorWithRed:0.992 green:0.608 blue:0.039 alpha:1.000], nil];
+    NSArray *colorsArray = [NSArray arrayWithObjects:[UIColor colorWithRed:0.349 green:0.737 blue:0.318 alpha:1.000],[UIColor colorWithRed:0.341 green:0.675 blue:0.953 alpha:1.000],[UIColor colorWithRed:0.937 green:0.388 blue:0.404 alpha:1.000], nil];
     NSArray *shapesArray = [NSArray arrayWithObjects:@"ci_w.png",@"tr_w.png",@"sq_w.png",nil];
     xPos = 10;
     float bubbleSize = (self.view.frame.size.width /  NUMBER_OF_COLORS) - 10 - (10 / NUMBER_OF_COLORS);
@@ -271,7 +271,7 @@
         [self playSound:1];
         [self blockAllUserInteraction];
         [gamePlay stopAnimations];
-        NSString *alertMessage = [NSString stringWithFormat:@"Oh ohh ! No worries.Try again. Your score is %d",score];
+        NSString *alertMessage = [NSString stringWithFormat:@"Oh ohh ! Your score is %d",score];
         [self showGameEndAlert:alertMessage andScore:[NSString stringWithFormat:@"%d",score]];
         [self resetScores];
     }
