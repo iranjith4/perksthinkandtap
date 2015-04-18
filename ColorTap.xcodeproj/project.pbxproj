@@ -21,6 +21,17 @@
 		C634C85C1AE2865600C42BA1 /* click2.wav in Resources */ = {isa = PBXBuildFile; fileRef = C634C85B1AE2865600C42BA1 /* click2.wav */; };
 		C634C85E1AE2890900C42BA1 /* wongfire.wav in Resources */ = {isa = PBXBuildFile; fileRef = C634C85D1AE2890800C42BA1 /* wongfire.wav */; };
 		C634C8601AE2958100C42BA1 /* gc-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C634C85F1AE2958100C42BA1 /* gc-icon.png */; };
+		C634C8631AE2A27A00C42BA1 /* HowToPlayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C634C8621AE2A27A00C42BA1 /* HowToPlayVC.m */; };
+		C634C8671AE2BE0600C42BA1 /* tut1.png in Resources */ = {isa = PBXBuildFile; fileRef = C634C8641AE2BE0600C42BA1 /* tut1.png */; };
+		C634C8681AE2BE0600C42BA1 /* tut2.png in Resources */ = {isa = PBXBuildFile; fileRef = C634C8651AE2BE0600C42BA1 /* tut2.png */; };
+		C634C8691AE2BE0600C42BA1 /* tut3.png in Resources */ = {isa = PBXBuildFile; fileRef = C634C8661AE2BE0600C42BA1 /* tut3.png */; };
+		C634C86C1AE2C81400C42BA1 /* AppSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = C634C86B1AE2C81400C42BA1 /* AppSettings.m */; };
+		C634C86E1AE2CAAD00C42BA1 /* logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C634C86D1AE2CAAD00C42BA1 /* logo.jpg */; };
+		C66CFC5A1AE2FA3E007F2FE0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C66CFC591AE2FA3E007F2FE0 /* CoreData.framework */; };
+		C66CFC5C1AE2FA69007F2FE0 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C66CFC5B1AE2FA69007F2FE0 /* libz.dylib */; };
+		C66CFC5E1AE2FA74007F2FE0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C66CFC5D1AE2FA74007F2FE0 /* SystemConfiguration.framework */; };
+		C66CFC601AE2FA82007F2FE0 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C66CFC5F1AE2FA82007F2FE0 /* libsqlite3.dylib */; };
+		C66CFC621AE2FA98007F2FE0 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C66CFC611AE2FA98007F2FE0 /* libGoogleAnalyticsServices.a */; };
 		C671D5451AD458D900C6C77B /* ScoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = C671D5441AD458D900C6C77B /* ScoreView.m */; };
 		C6A784A81AD598290077ED0F /* ci_f_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A784931AD598290077ED0F /* ci_f_1@2x.png */; };
 		C6A784A91AD598290077ED0F /* ci_f_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A784941AD598290077ED0F /* ci_f_2@2x.png */; };
@@ -83,6 +94,29 @@
 		C634C85B1AE2865600C42BA1 /* click2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = click2.wav; sourceTree = "<group>"; };
 		C634C85D1AE2890800C42BA1 /* wongfire.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wongfire.wav; sourceTree = "<group>"; };
 		C634C85F1AE2958100C42BA1 /* gc-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gc-icon.png"; path = "Resources/scoreImage/gc-icon.png"; sourceTree = "<group>"; };
+		C634C8611AE2A27A00C42BA1 /* HowToPlayVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HowToPlayVC.h; path = Controller/HowToPlayVC.h; sourceTree = "<group>"; };
+		C634C8621AE2A27A00C42BA1 /* HowToPlayVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HowToPlayVC.m; path = Controller/HowToPlayVC.m; sourceTree = "<group>"; };
+		C634C8641AE2BE0600C42BA1 /* tut1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tut1.png; path = Resources/scoreImage/tut1.png; sourceTree = "<group>"; };
+		C634C8651AE2BE0600C42BA1 /* tut2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tut2.png; path = Resources/scoreImage/tut2.png; sourceTree = "<group>"; };
+		C634C8661AE2BE0600C42BA1 /* tut3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tut3.png; path = Resources/scoreImage/tut3.png; sourceTree = "<group>"; };
+		C634C86A1AE2C81400C42BA1 /* AppSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppSettings.h; path = Controller/AppSettings.h; sourceTree = "<group>"; };
+		C634C86B1AE2C81400C42BA1 /* AppSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppSettings.m; path = Controller/AppSettings.m; sourceTree = "<group>"; };
+		C634C86D1AE2CAAD00C42BA1 /* logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = logo.jpg; path = Resources/scoreImage/logo.jpg; sourceTree = "<group>"; };
+		C66CFC4F1AE2FA14007F2FE0 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAI.h; path = thirdparty/GA/GAI.h; sourceTree = "<group>"; };
+		C66CFC501AE2FA14007F2FE0 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAIDictionaryBuilder.h; path = thirdparty/GA/GAIDictionaryBuilder.h; sourceTree = "<group>"; };
+		C66CFC511AE2FA14007F2FE0 /* GAIEcommerceFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAIEcommerceFields.h; path = thirdparty/GA/GAIEcommerceFields.h; sourceTree = "<group>"; };
+		C66CFC521AE2FA14007F2FE0 /* GAIEcommerceProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAIEcommerceProduct.h; path = thirdparty/GA/GAIEcommerceProduct.h; sourceTree = "<group>"; };
+		C66CFC531AE2FA14007F2FE0 /* GAIEcommerceProductAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAIEcommerceProductAction.h; path = thirdparty/GA/GAIEcommerceProductAction.h; sourceTree = "<group>"; };
+		C66CFC541AE2FA14007F2FE0 /* GAIEcommercePromotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAIEcommercePromotion.h; path = thirdparty/GA/GAIEcommercePromotion.h; sourceTree = "<group>"; };
+		C66CFC551AE2FA14007F2FE0 /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAIFields.h; path = thirdparty/GA/GAIFields.h; sourceTree = "<group>"; };
+		C66CFC561AE2FA14007F2FE0 /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAILogger.h; path = thirdparty/GA/GAILogger.h; sourceTree = "<group>"; };
+		C66CFC571AE2FA14007F2FE0 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAITrackedViewController.h; path = thirdparty/GA/GAITrackedViewController.h; sourceTree = "<group>"; };
+		C66CFC581AE2FA14007F2FE0 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAITracker.h; path = thirdparty/GA/GAITracker.h; sourceTree = "<group>"; };
+		C66CFC591AE2FA3E007F2FE0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		C66CFC5B1AE2FA69007F2FE0 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		C66CFC5D1AE2FA74007F2FE0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		C66CFC5F1AE2FA82007F2FE0 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		C66CFC611AE2FA98007F2FE0 /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAnalyticsServices.a; path = ../../../Downloads/GoogleAnalyticsServicesiOS_3.10/libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
 		C671D5431AD458D900C6C77B /* ScoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScoreView.h; path = Views/ScoreView.h; sourceTree = "<group>"; };
 		C671D5441AD458D900C6C77B /* ScoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScoreView.m; path = Views/ScoreView.m; sourceTree = "<group>"; };
 		C6A784931AD598290077ED0F /* ci_f_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ci_f_1@2x.png"; path = "Resources/Images/ci_f_1@2x.png"; sourceTree = "<group>"; };
@@ -120,6 +154,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C66CFC621AE2FA98007F2FE0 /* libGoogleAnalyticsServices.a in Frameworks */,
+				C66CFC601AE2FA82007F2FE0 /* libsqlite3.dylib in Frameworks */,
+				C66CFC5E1AE2FA74007F2FE0 /* SystemConfiguration.framework in Frameworks */,
+				C66CFC5C1AE2FA69007F2FE0 /* libz.dylib in Frameworks */,
+				C66CFC5A1AE2FA3E007F2FE0 /* CoreData.framework in Frameworks */,
 				C6B4D1271ADA2B1400BFC7C4 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,6 +176,10 @@
 		C604E2751AE07AE200087024 /* scoreImage */ = {
 			isa = PBXGroup;
 			children = (
+				C634C8641AE2BE0600C42BA1 /* tut1.png */,
+				C634C8651AE2BE0600C42BA1 /* tut2.png */,
+				C634C86D1AE2CAAD00C42BA1 /* logo.jpg */,
+				C634C8661AE2BE0600C42BA1 /* tut3.png */,
 				C604E2761AE07C6600087024 /* logo_score.png */,
 				C634C85F1AE2958100C42BA1 /* gc-icon.png */,
 			);
@@ -146,6 +189,11 @@
 		C607B2701AD2F13900400F25 = {
 			isa = PBXGroup;
 			children = (
+				C66CFC611AE2FA98007F2FE0 /* libGoogleAnalyticsServices.a */,
+				C66CFC5F1AE2FA82007F2FE0 /* libsqlite3.dylib */,
+				C66CFC5D1AE2FA74007F2FE0 /* SystemConfiguration.framework */,
+				C66CFC5B1AE2FA69007F2FE0 /* libz.dylib */,
+				C66CFC591AE2FA3E007F2FE0 /* CoreData.framework */,
 				C6B4D1261ADA2B1400BFC7C4 /* GameKit.framework */,
 				C607B27B1AD2F13900400F25 /* ColorTap */,
 				C607B2951AD2F13900400F25 /* ColorTapTests */,
@@ -236,6 +284,10 @@
 		C607B2A41AD310BD00400F25 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C634C8611AE2A27A00C42BA1 /* HowToPlayVC.h */,
+				C634C8621AE2A27A00C42BA1 /* HowToPlayVC.m */,
+				C634C86A1AE2C81400C42BA1 /* AppSettings.h */,
+				C634C86B1AE2C81400C42BA1 /* AppSettings.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -261,10 +313,28 @@
 		C634C8551AE283D700C42BA1 /* thirdparty */ = {
 			isa = PBXGroup;
 			children = (
+				C66CFC4E1AE2F9E7007F2FE0 /* GA */,
 				C634C8561AE283E100C42BA1 /* SoundManager.h */,
 				C634C8571AE283E100C42BA1 /* SoundManager.m */,
 			);
 			name = thirdparty;
+			sourceTree = "<group>";
+		};
+		C66CFC4E1AE2F9E7007F2FE0 /* GA */ = {
+			isa = PBXGroup;
+			children = (
+				C66CFC4F1AE2FA14007F2FE0 /* GAI.h */,
+				C66CFC501AE2FA14007F2FE0 /* GAIDictionaryBuilder.h */,
+				C66CFC511AE2FA14007F2FE0 /* GAIEcommerceFields.h */,
+				C66CFC521AE2FA14007F2FE0 /* GAIEcommerceProduct.h */,
+				C66CFC531AE2FA14007F2FE0 /* GAIEcommerceProductAction.h */,
+				C66CFC541AE2FA14007F2FE0 /* GAIEcommercePromotion.h */,
+				C66CFC551AE2FA14007F2FE0 /* GAIFields.h */,
+				C66CFC561AE2FA14007F2FE0 /* GAILogger.h */,
+				C66CFC571AE2FA14007F2FE0 /* GAITrackedViewController.h */,
+				C66CFC581AE2FA14007F2FE0 /* GAITracker.h */,
+			);
+			name = GA;
 			sourceTree = "<group>";
 		};
 		C6A784911AD598170077ED0F /* Resources */ = {
@@ -399,10 +469,13 @@
 				C6A784BA1AD598290077ED0F /* tr_uf_2@2x.png in Resources */,
 				C6A784AE1AD598290077ED0F /* ci_w@2x.png in Resources */,
 				C6A784BB1AD598290077ED0F /* tr_uf_3@2x.png in Resources */,
+				C634C86E1AE2CAAD00C42BA1 /* logo.jpg in Resources */,
 				C6A784AC1AD598290077ED0F /* ci_uf_2@2x.png in Resources */,
 				C6A784AD1AD598290077ED0F /* ci_uf_3@2x.png in Resources */,
 				C6A784B51AD598290077ED0F /* sq_w@2x.png in Resources */,
+				C634C8671AE2BE0600C42BA1 /* tut1.png in Resources */,
 				C6A784B61AD598290077ED0F /* tr_f_1@2x.png in Resources */,
+				C634C8691AE2BE0600C42BA1 /* tut3.png in Resources */,
 				C607B28D1AD2F13900400F25 /* LaunchScreen.xib in Resources */,
 				C634C85E1AE2890900C42BA1 /* wongfire.wav in Resources */,
 				C6A784AF1AD598290077ED0F /* sq_f_1@2x.png in Resources */,
@@ -416,6 +489,7 @@
 				C6A784B41AD598290077ED0F /* sq_uf_3@2x.png in Resources */,
 				C6A784AB1AD598290077ED0F /* ci_uf_1@2x.png in Resources */,
 				C607B28A1AD2F13900400F25 /* Images.xcassets in Resources */,
+				C634C8681AE2BE0600C42BA1 /* tut2.png in Resources */,
 				C604E2771AE07C6600087024 /* logo_score.png in Resources */,
 				C6A784A81AD598290077ED0F /* ci_f_1@2x.png in Resources */,
 				C6A784B11AD598290077ED0F /* sq_f_3@2x.png in Resources */,
@@ -438,6 +512,8 @@
 			files = (
 				C607B2AB1AD3113300400F25 /* Constants.m in Sources */,
 				C6A784BF1AD5A1460077ED0F /* GamePlayView.m in Sources */,
+				C634C86C1AE2C81400C42BA1 /* AppSettings.m in Sources */,
+				C634C8631AE2A27A00C42BA1 /* HowToPlayVC.m in Sources */,
 				C6D4974F1ADA9C6A00B59313 /* MenuButton.m in Sources */,
 				C634C8581AE283E100C42BA1 /* SoundManager.m in Sources */,
 				C671D5451AD458D900C6C77B /* ScoreView.m in Sources */,
@@ -571,6 +647,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ColorTap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/ranjith/Downloads/GoogleAnalyticsServicesiOS_3.10,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -585,6 +665,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ColorTap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/ranjith/Downloads/GoogleAnalyticsServicesiOS_3.10,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";

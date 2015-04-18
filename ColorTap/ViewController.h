@@ -10,11 +10,13 @@
 #import "GamePlayView.h"
 #import "MenuView.h"
 #import <GameKit/GameKit.h>
+#import "GAITrackedViewController.h"
 #define TIME_REDUCTION_FACTOR 0.05
 #define MAXIMUM_SPEED 1.5
 #define MINIMUM_SPEED 3.5
 
-@interface ViewController : UIViewController<GamePlayProtocol,MenuViewProtocol,GKGameCenterControllerDelegate>
+@interface ViewController : GAITrackedViewController<GamePlayProtocol,MenuViewProtocol,GKGameCenterControllerDelegate>
+
 
 
 @end

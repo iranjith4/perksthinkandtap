@@ -12,6 +12,10 @@
 #import "ScoreView.h"
 #import <QuartzCore/QuartzCore.h>
 #import "SoundManager.h"
+#import "HowToPlayVC.h"
+#import "AppSettings.h"
+#import "GAI.h"
+#import "GAIDictionaryBuilder.h"
 
 @interface ViewController (){
     float xPos;
@@ -53,6 +57,14 @@
     [self addMenus];
    // [self loadAdMob];
     [self blockAllUserInteraction];
+    
+    //GA
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    
+    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"events"     // Event category (required)
+                                                          action:@"app_launch"  // Event action (required)
+                                                           label:@"app_open"          // Event label
+                                                           value:nil] build]];    // Event value
 }
 - (void) initValues{
     isTouched = NO;
@@ -66,6 +78,15 @@
     if ([settings objectForKey:@"sound"] == nil) {
         [settings setObject:[NSNumber numberWithBool:YES] forKey:@"sound"];
     }
+    
+    if ([settings objectForKey:@"show_tutorial"] == nil) {
+        [settings setObject:[NSNumber numberWithBool:YES] forKey:@"show_tutorial"];
+    }
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.screenName = @"Game Screen";
 }
 
 - (void)addScoreBoard{
@@ -115,7 +136,7 @@
     [self.view addSubview:gc];
     
     gcLabel = [[UILabel alloc] initWithFrame:CGRectMake(gc.frame.origin.x + gc.frame.size.width + 5, yPos, self.view.frame.size.width - gc.frame.origin.x - gc.frame.size.width - 10, gc.frame.size.height)];
-    gcLabel.text = @"Log in to Game Center App to avoid local high score loss.";
+    gcLabel.text = @"Log in to Game Center App to avoid losing high scores.";
     gcLabel.textColor = [UIColor lightGrayColor];
     gcLabel.font = [UIFont fontWithName:FONT_REGULAR size:[Constants changeFontSizeWithWidth:IPHONE6PLUS_SIZE :13]];
     [self.view addSubview:gcLabel];
@@ -129,6 +150,15 @@
 }
 
 - (void)startButton{
+    //GA
+    
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    
+    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"ui_action"     // Event category (required)
+                                                          action:@"button_press"  // Event action (required)
+                                                           label:@"start_button"          // Event label
+                                                           value:nil] build]];    // Event value
+    
     [self startGame];
     start.hidden = YES;
 }
@@ -159,10 +189,41 @@
 }
 
 -(void)bubbleTapped :(UIGestureRecognizer *)gesture{
+    
     int tagValue = (int)gesture.view.tag;
     NSLog(@"%d",tagValue);
     isTouched = YES;
     isPoint = NO;
+    
+    if (tagValue == 0) {
+        id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+        
+        [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"ui_action"     // Event category (required)
+                                                              action:@"bubble_press"  // Event action (required)
+                                                               label:@"red_circle"          // Event label
+                                                               value:nil] build]];    // Event value
+    }
+    
+    if (tagValue == 1) {
+        id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+        
+        [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"ui_action"     // Event category (required)
+                                                              action:@"bubble_press"  // Event action (required)
+                                                               label:@"green_triangle"          // Event label
+                                                               value:nil] build]];    // Event value
+    }
+    
+    if (tagValue == 2) {
+        id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+        
+        [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"ui_action"     // Event category (required)
+                                                              action:@"bubble_press"  // Event action (required)
+                                                               label:@"square_blue"          // Event label
+                                                               value:nil] build]];    // Event value
+    }
+    
+    //GA
+    
     
     CGRect tempFrame = gesture.view.frame;
     CGRect animFrame = tempFrame;
@@ -188,17 +249,44 @@
         isPoint = YES;
         [gamePlay stopAnimations]; // This should be called after setting isPoint to YES
         [self startGame];
+        
+        //GA
+        id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+        
+        [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"events"     // Event category (required)
+                                                              action:@"game_play"  // Event action (required)
+                                                               label:@"win"          // Event label
+                                                               value:nil] build]];    // Event value
+        
     }else{
+        
+        //GA
+        id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+        
+        [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"events"     // Event category (required)
+                                                              action:@"game_play"  // Event action (required)
+                                                               label:@"loss"          // Event label
+                                                               value:nil] build]];    // Event value
+
         [self playSound:1];
         [self blockAllUserInteraction];
         [gamePlay stopAnimations];
-        NSString *alertMessage = [NSString stringWithFormat:@"You missed the game. Your score is %d",score];
+        NSString *alertMessage = [NSString stringWithFormat:@"Oh ohh ! No worries.Try again. Your score is %d",score];
         [self showGameEndAlert:alertMessage andScore:[NSString stringWithFormat:@"%d",score]];
         [self resetScores];
     }
 }
 
 - (void)scoreUpdater:(int)scoreVal{
+    //GA
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    
+    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"events"     // Event category (required)
+                                                          action:@"game_play"  // Event action (required)
+                                                           label:@"score_update"          // Event label
+                                                           value:[NSNumber numberWithInt:scoreVal]] build]];    // Event value
+
+    
     if (isPoint) {
         score += scoreVal;
         taps +=1;
@@ -206,14 +294,22 @@
     [scores updateGameScore:[NSString stringWithFormat:@"%d",score]];
 }
 
-- (void)updateScore{
-    score += 10;
-    [scores updateGameScore:[NSString stringWithFormat:@"%d",score]];
-}
+
 
 - (void)updatePersonalHighScore:(int)gameScore{
     NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
     if (gameScore > [[settings objectForKey:@"personal_high"] intValue]) {
+        
+        //GA
+        id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+        
+        [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"events"     // Event category (required)
+                                                              action:@"game_play"  // Event action (required)
+                                                               label:@"highscore_update"          // Event label
+                                                               value:[NSNumber numberWithInt:gameScore]] build]];    // Event value
+
+        
+        
         [settings setObject:[NSString stringWithFormat:@"%d",score] forKey:@"personal_high"];
         [scores updatePersonalScore:[settings objectForKey:@"personal_high"]];
         [self scoreToGamecenter:gameScore];
@@ -247,6 +343,16 @@
 }
 
 - (void)startGame{
+    
+    
+    //GA
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    
+    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"events"     // Event category (required)
+                                                          action:@"game_play"  // Event action (required)
+                                                           label:@"game_start"          // Event label
+                                                           value:nil] build]];    // Event value   // Event value
+    
     isTouched = NO;
     [self releaseAllUserInteractionBlock];
     NSDictionary *gameValues = [Constants getRandomGameImage];
@@ -259,6 +365,14 @@
 }
 
 - (void)loseGame{
+    
+    //GA
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    
+    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"events"     // Event category (required)
+                                                          action:@"game_play"  // Event action (required)
+                                                           label:@"lose_game"          // Event label
+                                                           value:nil] build]];    // Event value
     [gamePlay stopAnimations];
 }
 
@@ -272,7 +386,7 @@
 
 -(void)animationEnds{
     if (!isTouched) {
-        NSString *alertMessage = [NSString stringWithFormat:@"You missed the Touch. Your score is %d",score];
+        NSString *alertMessage = [NSString stringWithFormat:@"You have not Tapped !. Your score is %d",score];
         [self showGameEndAlert:alertMessage andScore:[NSString stringWithFormat:@"%d",score]];
         [self resetScores];
         [self blockAllUserInteraction];
@@ -307,6 +421,13 @@
 }
 
 - (void)updateAchievements{
+    //GA
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    
+    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"events"     // Event category (required)
+                                                          action:@"game_play"  // Event action (required)
+                                                           label:@"achievement_update"          // Event label
+                                                           value:nil] build]];    // Event value
     NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
     long long int tempTap = [[settings objectForKey:@"taps"] longLongValue];
     int tempScore = [[settings objectForKey:@"personal_high"] intValue];
@@ -336,10 +457,28 @@
         }
         else{
             if ([GKLocalPlayer localPlayer].authenticated) {
+                //
+                //GA
+                id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+                
+                [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"events"     // Event category (required)
+                                                                      action:@"game_play"  // Event action (required)
+                                                                       label:@"gc_authenticate"          // Event label
+                                                                       value:nil] build]];
+                 
+                 // Event value
                 isGameCenterEnabled = YES;
                 gc.hidden = YES;
                 gcLabel.hidden = YES;
                 [self updateDataFromGameCenter];
+                
+                //Checking for showing the tutorial
+                NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
+                if ([settings objectForKey:@"show_tutorial"] != nil) {
+                    if ([[settings objectForKey:@"show_tutorial"] boolValue]) {
+                        [self loadHowToPlay];
+                    }
+                }
             }
         }
     };
@@ -351,9 +490,23 @@
     [GKLeaderboard loadLeaderboardsWithCompletionHandler:^(NSArray *leaderboards, NSError *nsError) {
         if( nsError != nil )
         {
+            //GA
+            id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+            
+            [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"events"     // Event category (required)
+                                                                  action:@"game_play"  // Event action (required)
+                                                                   label:@"gc_to_local_error"          // Event label
+                                                                   value:nil] build]];    // Event value
             return ;
         }
         
+        //GA
+        id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+        
+        [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"events"     // Event category (required)
+                                                              action:@"game_play"  // Event action (required)
+                                                               label:@"gc_to_local_success"          // Event label
+                                                               value:nil] build]];    // Event value
         for( GKLeaderboard* board in leaderboards )
         {
             [board loadScoresWithCompletionHandler:^(NSArray *scoresArray, NSError *error) {
@@ -376,7 +529,22 @@
     scoreInGameCenter.value = scoreValue;
     [GKScore reportScores:@[scoreInGameCenter] withCompletionHandler:^(NSError *error) {
         if (error != nil) {
+            //GA
+            id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+            
+            [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"events"     // Event category (required)
+                                                                  action:@"game_play"  // Event action (required)
+                                                                   label:@"score_to_gc_success"          // Event label
+                                                                   value:nil] build]];    // Event value
             NSLog(@"%@", [error localizedDescription]);
+        }else{
+            //GA
+            id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+            
+            [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"events"     // Event category (required)
+                                                                  action:@"game_play"  // Event action (required)
+                                                                   label:@"score_to_gc_error"          // Event label
+                                                                   value:nil] build]];    // Event value
         }
     }];
 }
@@ -391,6 +559,21 @@
     [GKScore reportScores:@[tapInGC] withCompletionHandler:^(NSError *error) {
         if (error != nil) {
             NSLog(@"%@", [error localizedDescription]);
+            //GA
+            id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+            
+            [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"events"     // Event category (required)
+                                                                  action:@"game_play"  // Event action (required)
+                                                                   label:@"taps_to_gc_success"          // Event label
+                                                                   value:nil] build]];    // Event value
+        }else{
+            //GA
+            id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+            
+            [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"events"     // Event category (required)
+                                                                  action:@"game_play"  // Event action (required)
+                                                                   label:@"taps_to_gc_error"          // Event label
+                                                                   value:nil] build]];    // Event value
         }
     }];
 }
@@ -398,6 +581,42 @@
 #pragma mark - menu clicks methods and delegate methods
 
 - (void)menuClicked:(MenuType)menuType{
+    
+    start.hidden = NO;
+    switch (menuType) {
+        case MenuTypeGameCenter:
+        {
+            //GA
+            id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+            
+            [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"ui_action"     // Event category (required)
+                                                                  action:@"menu_press"  // Event action (required)
+                                                                   label:@"game_center"          // Event label
+                                                                   value:nil] build]];    // Event value
+        }
+            break;
+        case MenuTypeHowToPlay:{
+            id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+            
+            [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"ui_action"     // Event category (required)
+                                                                  action:@"menu_press"  // Event action (required)
+                                                                   label:@"how_to_play"          // Event label
+                                                                   value:nil] build]];    // Event value
+        }
+            break;
+        case MenuTypeAppDetails:{
+            id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+            
+            [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"ui_action"     // Event category (required)
+                                                                  action:@"menu_press"  // Event action (required)
+                                                                   label:@"about_us"          // Event label
+                                                                   value:nil] build]];    // Event value
+        }
+            break;
+        default:
+            break;
+    }
+    
     switch (menuType) {
         case MenuTypeGameCenter:
             [self showGameCenter];
@@ -408,7 +627,7 @@
             break;
             
         case MenuTypeAppDetails:
-            
+            [self loadSettings];
             break;
             
         default:
@@ -416,24 +635,42 @@
     }
 }
 
+- (void)loadSettings{
+    AppSettings *settingVC = [[AppSettings alloc] initWithNibName:nil bundle:nil];
+    [self presentViewController:settingVC animated:YES completion:nil];
+}
+
 - (void)showGameCenter{
     GKGameCenterViewController *gcViewController = [[GKGameCenterViewController alloc] init];
     gcViewController.gameCenterDelegate = self;
-    gcViewController.viewState = GKGameCenterViewControllerStateLeaderboards;
-    gcViewController.leaderboardIdentifier = LEADERBOARD_SCORE;
+    gcViewController.viewState = GKGameCenterViewControllerStateDefault;
     [self presentViewController:gcViewController animated:YES completion:nil];
 }
 
 - (void)loadHowToPlay{
-    
+    HowToPlayVC *howToPlay = [[HowToPlayVC alloc] initWithNibName:nil bundle:nil];
+    [self presentViewController:howToPlay animated:YES completion:nil];
 }
 
 -(void)gameCenterViewControllerDidFinish:(GKGameCenterViewController *)gameCenterViewController{
-    [gameCenterViewController dismissViewControllerAnimated:YES completion:nil];
+    [gameCenterViewController dismissViewControllerAnimated:YES completion:^(void){
+        NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
+        if ([settings objectForKey:@"show_tutorial"] != nil) {
+            if ([[settings objectForKey:@"show_tutorial"] boolValue]) {
+                [self loadHowToPlay];
+            }
+        }
+    }];
 }
 
 
 - (void)shareScore :(NSString *)scr{
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    
+    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"ui_action"     // Event category (required)
+                                                          action:@"share_score"  // Event action (required)
+                                                           label:@"share"          // Event label
+                                                           value:[NSNumber numberWithInt:[scr intValue]]] build]];    // Event value
     UIImage *shareImage = [self scoreCreator:scr];
     NSString *text = [NSString stringWithFormat:@"Download Think & Tap at App Store. http://www.iranjith4.com/thinkandtap"];
     NSArray *objectsToShare = @[shareImage,text];
