@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <GameKit/GameKit.h>
 
 // Game Configurations
 #define NUMBER_OF_COLORS 3
@@ -33,10 +34,24 @@
 #define STATUS_BAR_HEIGHT [UIApplication sharedApplication].statusBarFrame.size.height
 #define SCREEN_RESOLUTION_WIDTH [[UIScreen mainScreen] bounds].size.width * [UIScreen mainScreen].scale
 
+//Leaderboard Names Constants
+#define LEADERBOARD_SCORE @"grp.colortapscore"
+#define LEADERBOARD_TAPS @"grp.colortaptaps"
+
+//Menu Types
+typedef enum : NSUInteger {
+    MenuTypeGameCenter,
+    MenuTypeHowToPlay,
+    MenuTypeAppDetails,
+} MenuType;
+
 @interface Constants : NSObject
 
 +(float)changeFontSizeWithWidth:(CGSize)referenceDevice :(float)space;
 +(float)changeFontSizeWithHeight:(CGSize)referenceDevice :(float)space;
 +(NSDictionary *)getRandomGameImage;
++ (UIImage *) imageWithView:(UIView *)view;
++(void)calculateAchievementProgressForTap:(long long int)taps andScore:(int)score;
++(void)clearAllAchivements;
 
 @end

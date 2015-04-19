@@ -18,4 +18,5 @@
 @property (nonatomic, strong) UILabel *personalScore;
 
 - (void)updateGameScore:(NSString *)scoreValue;
+- (void)updatePersonalScore:(NSString *)scoreValue;
 @end

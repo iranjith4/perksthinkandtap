@@ -7,6 +7,7 @@
 //
 
 #import "GamePlayView.h"
+#import "Constants.h"
 
 @implementation GamePlayView
 
@@ -23,13 +24,20 @@
     //self.backgroundColor = [UIColor colorWithWhite:0.947 alpha:1.000];
     float xPos = 0;
     NSArray * scoreColors = [NSArray arrayWithObjects:[UIColor colorWithWhite:0.850 alpha:1.0],[UIColor colorWithWhite:0.900 alpha:1.0],[UIColor colorWithWhite:0.950 alpha:1.0],nil];
+    NSArray *scoreValues = [NSArray arrayWithObjects:@"20 pts",@"10 pts",@"5 pts",nil];
     for (int i = 0; i < 3; i++) {
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(xPos,0, self.frame.size.width / 3, self.frame.size.height)];
         view.backgroundColor = [scoreColors objectAtIndex:i];
+        UILabel *scoreLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, view.frame.size.height * 0.85, view.frame.size.width, view.frame.size.height * 0.15)];
+        scoreLabel.text = [scoreValues objectAtIndex:i];
+        scoreLabel.textAlignment = NSTextAlignmentCenter;
+        scoreLabel.font = [UIFont fontWithName:FONT_SEMIBOLD size:10];
+        scoreLabel.textColor = [UIColor darkGrayColor];
+        [view addSubview:scoreLabel];
         [self addSubview:view];
         xPos += view.frame.size.width;
     }
-    self.gameImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.frame.size.height * 0.125, self.frame.size.height * 0.75, self.frame.size.height * 0.75)];
+    self.gameImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.frame.size.height * 0.15, self.frame.size.height * 0.70, self.frame.size.height * 0.70)];
     [self addSubview:self.gameImage];
 }
 
@@ -52,7 +60,6 @@
                              [self.delegate animationEnds];
                          }
                      }];
-
 }
 
 - (void)stopAnimations{
@@ -79,5 +86,9 @@
         return 0;
     }
 }
+
+//TODO: Include Game Center
+//TODO: Checkout Trello
+
 
 @end
