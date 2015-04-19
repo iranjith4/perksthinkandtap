@@ -36,6 +36,7 @@
 //    [self tutor];
     [self addImageTutor];
     [self addCloseButton];
+    [self loadAdMob];
     // Do any additional setup after loading the view.
 }
 
@@ -44,12 +45,36 @@
     self.screenName = @"How to Play";
 }
 - (void)addScrollView{
-    scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, [[UIApplication sharedApplication] statusBarFrame].size.height, self.view.frame.size.width, self.view.frame.size.height - [[UIApplication sharedApplication] statusBarFrame].size.height)];
+    float scrollRectMinus;
+    NSString *deviceType = [UIDevice currentDevice].model;
+    if([deviceType hasPrefix:@"iPhone"])
+    {
+        scrollRectMinus = 50;
+    }else{
+        scrollRectMinus = 90;
+    }
+    scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, [[UIApplication sharedApplication] statusBarFrame].size.height, self.view.frame.size.width, self.view.frame.size.height - scrollRectMinus - [[UIApplication sharedApplication] statusBarFrame].size.height)];
     scroll.contentSize = CGSizeMake(self.view.frame.size.width, yPos);
     scroll.backgroundColor = [UIColor whiteColor];
     scroll.scrollEnabled = YES;
     scroll.alwaysBounceVertical = YES;
     [self.view addSubview:scroll];
+}
+
+-(void)loadAdMob{
+    CGRect adMobFrame;
+    NSString *deviceType = [UIDevice currentDevice].model;
+    if([deviceType hasPrefix:@"iPhone"])
+    {
+        adMobFrame = CGRectMake(0, self.view.frame.size.height - 50, self.view.frame.size.width, 50);
+    }else{
+        adMobFrame = CGRectMake(0, self.view.frame.size.height - 90, self.view.frame.size.width, 90);
+    }
+    self.adBanner = [[GADBannerView alloc] initWithFrame:adMobFrame];
+    self.adBanner.adUnitID = @"ca-app-pub-3860374128691547/5644679918";
+    self.adBanner.rootViewController = self;
+    [self.adBanner loadRequest:[GADRequest request]];
+    [self.view addSubview:self.adBanner];
 }
 
 - (void)addImageTutor {

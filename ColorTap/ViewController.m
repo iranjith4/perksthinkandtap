@@ -16,6 +16,7 @@
 #import "AppSettings.h"
 #import "GAI.h"
 #import "GAIDictionaryBuilder.h"
+@import GoogleMobileAds;
 
 @interface ViewController (){
     float xPos;
@@ -42,6 +43,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog(@"Google Mobile Ads SDK version: %@", [GADRequest sdkVersion]);
     if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
@@ -55,7 +57,7 @@
     [self addStartButton];
     [self addGCWarning];
     [self addMenus];
-   // [self loadAdMob];
+    [self loadAdMob];
     [self blockAllUserInteraction];
     
     //GA
@@ -103,7 +105,7 @@
                                 @"personal_high" : personalHigh
                                 };
     scores = [[ScoreView alloc] initWithFrame:CGRectMake(0, yPos, self.view.frame.size.width, self.view.frame.size.height * 0.12) andData:scoreData];
-    yPos += scores.frame.size.height + self.view.frame.size.height * 0.06;
+    yPos += scores.frame.size.height + self.view.frame.size.height * 0.03;
     [self.view addSubview:scores];
 }
 
@@ -144,7 +146,7 @@
 }
 
 - (void) addMenus{
-    menus = [[MenuView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - self.view.frame.size.height * 0.12 , self.view.frame.size.width, self.view.frame.size.height * 0.09)];
+    menus = [[MenuView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 50 - self.view.frame.size.height * 0.12 , self.view.frame.size.width, self.view.frame.size.height * 0.09)];
     menus.delegate = self;
     [self.view addSubview:menus];
 }
@@ -185,7 +187,7 @@
             xPos += bubble.frame.size.width + 10;
         }
     }
-    yPos += bubbleSize + self.view.frame.size.height * 0.04;
+    yPos += bubbleSize + self.view.frame.size.height * 0.02;
 }
 
 -(void)bubbleTapped :(UIGestureRecognizer *)gesture{
@@ -331,10 +333,20 @@
 }
 
 -(void)loadAdMob{
-    CGRect adMobFrame = CGRectMake(0, self.view.frame.size.height - 50, self.view.frame.size.width, 50);
-    UIView *adMob = [[UIView alloc] initWithFrame:adMobFrame];
-    adMob.backgroundColor = [UIColor colorWithRed:0.510 green:0.755 blue:1.000 alpha:1.000];
-    [self.view addSubview:adMob];
+    CGRect adMobFrame;
+    NSString *deviceType = [UIDevice currentDevice].model;
+    if([deviceType hasPrefix:@"iPhone"])
+    {
+        adMobFrame = CGRectMake(0, self.view.frame.size.height - 50, self.view.frame.size.width, 50);
+    }else{
+        adMobFrame = CGRectMake(0, self.view.frame.size.height - 90, self.view.frame.size.width, 90);
+    }
+    
+    self.adBanner = [[GADBannerView alloc] initWithFrame:adMobFrame];
+    self.adBanner.adUnitID = @"ca-app-pub-3860374128691547/4167946710";
+    self.adBanner.rootViewController = self;
+    [self.adBanner loadRequest:[GADRequest request]];
+    [self.view addSubview:self.adBanner];
 }
 
 - (void)didReceiveMemoryWarning {

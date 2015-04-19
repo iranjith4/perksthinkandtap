@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "GAITrackedViewController.h"
+@import GoogleMobileAds;
 
 @interface HowToPlayVC : GAITrackedViewController
 
+@property(nonatomic, strong) GADBannerView *adBanner;
 @end
