@@ -28,7 +28,17 @@
     
     yPos = self.view.frame.size.width * 0.03;
     self.view.backgroundColor = [UIColor whiteColor];
-    scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, [[UIApplication sharedApplication] statusBarFrame].size.height,self.view.frame.size.width , self.view.frame.size.height - [[UIApplication sharedApplication] statusBarFrame].size.height)];
+    float scrollRectMinus;
+    NSString *deviceType = [UIDevice currentDevice].model;
+    if([deviceType hasPrefix:@"iPhone"])
+    {
+        scrollRectMinus = 50;
+    }else{
+        scrollRectMinus = 90;
+    }
+
+    
+    scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, [[UIApplication sharedApplication] statusBarFrame].size.height,self.view.frame.size.width , self.view.frame.size.height - [[UIApplication sharedApplication] statusBarFrame].size.height - scrollRectMinus)];
     scroll.alwaysBounceVertical = YES;
     scroll.scrollEnabled = YES;
     scroll.backgroundColor = [UIColor whiteColor];
@@ -36,11 +46,28 @@
     // Do any additional setup after loading the view.
     
     [self addName];
+    [self loadAdMob];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.screenName = @"About us";
+}
+
+-(void)loadAdMob{
+    CGRect adMobFrame;
+    NSString *deviceType = [UIDevice currentDevice].model;
+    if([deviceType hasPrefix:@"iPhone"])
+    {
+        adMobFrame = CGRectMake(0, self.view.frame.size.height - 50, self.view.frame.size.width, 50);
+    }else{
+        adMobFrame = CGRectMake(0, self.view.frame.size.height - 90, self.view.frame.size.width, 90);
+    }
+    self.adBanner = [[GADBannerView alloc] initWithFrame:adMobFrame];
+    self.adBanner.adUnitID = @"ca-app-pub-3860374128691547/4028345915";
+    self.adBanner.rootViewController = self;
+    [self.adBanner loadRequest:[GADRequest request]];
+    [self.view addSubview:self.adBanner];
 }
 
 - (void)addName{
@@ -86,6 +113,27 @@
     twitter.textColor = [UIColor darkGrayColor];
     [scroll addSubview:twitter];
     yPos += 30;
+    
+    
+    UILabel *dontLike = [[UILabel alloc] initWithFrame:CGRectMake(10, yPos, self.view.frame.size.width - 20, 30)];
+    dontLike.text = @"Dont Like ads ?";
+    dontLike.font = [UIFont fontWithName:FONT_REGULAR size:[Constants changeFontSizeWithWidth:IPHONE5_SIZE :13]];
+    dontLike.textAlignment = NSTextAlignmentCenter;
+    dontLike.textColor = [UIColor darkGrayColor];
+    [scroll addSubview:dontLike];
+    yPos += 30;
+    
+    MenuButton  *proVer = [[MenuButton alloc] initWithFrame:CGRectMake(0, yPos, self.view.frame.size.width * 0.60, 30)];
+    proVer.backgroundColor = [UIColor colorWithRed:0.259 green:0.596 blue:0.929 alpha:1.000];
+    [proVer setTitle:@"Buy Pro Version" forState:UIControlStateNormal];
+    [proVer setTitleColor: [UIColor whiteColor] forState:UIControlStateNormal];
+    [proVer setTitleColor:[UIColor grayColor] forState:UIControlStateSelected];
+    proVer.titleLabel.font = [UIFont fontWithName:FONT_MEDIUM size:[Constants changeFontSizeWithWidth:IPHONE5_SIZE :13]];
+    [proVer addTarget:self action:@selector(buyPro) forControlEvents:UIControlEventTouchUpInside];
+    proVer.center = CGPointMake(self.view.center.x, proVer.center.y);
+    [scroll addSubview:proVer];
+    yPos += proVer.frame.size.height + 20;
+
     
     UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, yPos, self.view.frame.size.width, 1)];
     line.backgroundColor = [UIColor colorWithRed:0.259 green:0.596 blue:0.929 alpha:1.000];
@@ -149,6 +197,16 @@
     
     [scroll addSubview:musicSwitch];
     
+}
+
+- (void)buyPro{
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    
+    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"ui_action"     // Event category (required)
+                                                          action:@"about_us"  // Event action (required)
+                                                           label:@"buy_pro"          // Event label
+                                                           value:nil] build]];    // Event value
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/app/id987177092"]];
 }
 
 -(void)resetGC{
@@ -317,7 +375,7 @@
                                                           action:@"about_us"  // Event action (required)
                                                            label:@"rate_us"          // Event label
                                                            value:nil] build]];    // Event value
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/app/id987177092"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/app/id987219670"]];
 }
 
 - (void)writeUs{

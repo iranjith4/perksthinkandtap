@@ -11,13 +11,14 @@
 #import "MenuView.h"
 #import <GameKit/GameKit.h>
 #import "GAITrackedViewController.h"
+@import GoogleMobileAds;
 #define TIME_REDUCTION_FACTOR 0.05
 #define MAXIMUM_SPEED 1.5
 #define MINIMUM_SPEED 3.5
 
 @interface ViewController : GAITrackedViewController<GamePlayProtocol,MenuViewProtocol,GKGameCenterControllerDelegate>
 
-
+@property (nonatomic, strong) GADBannerView *adBanner;
 
 @end
 

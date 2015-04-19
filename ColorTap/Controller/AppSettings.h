@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <MessageUI/MessageUI.h>
 #import "GAITrackedViewController.h"
+@import GoogleMobileAds;
 
 @interface AppSettings : GAITrackedViewController<MFMailComposeViewControllerDelegate>
+
+@property (nonatomic, strong) GADBannerView *adBanner;
 
 @end
