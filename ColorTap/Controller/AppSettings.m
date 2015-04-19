@@ -317,7 +317,7 @@
                                                           action:@"about_us"  // Event action (required)
                                                            label:@"rate_us"          // Event label
                                                            value:nil] build]];    // Event value
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/app/id984960199"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/app/id987177092"]];
 }
 
 - (void)writeUs{
