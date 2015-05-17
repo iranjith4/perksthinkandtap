@@ -8,8 +8,8 @@ This is a Game done by me, and integrated Apsaholic SDK for Hackathon.
 
 This is just a addictive mind game, where the shapes will keep on coming. User need to quickly identify whether the shape is FILLED one or OUTLINE one
 
-if FILLED ----> Tap on Corresponding Color
-if OUTLINED ----> Tap in Corresponding Shape
+* if FILLED ----> Tap on Corresponding Color
+* if OUTLINED ----> Tap in Corresponding Shape
 
 ### Tech Stacks used ###
 
