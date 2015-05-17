@@ -1,0 +1,554 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		120C39EF76714F6C23A28964 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A9A0C5E97F87FB67619A73 /* MBProgressHUD.m */; };
+		1634FA0963305B8D3C364454 /* AppsaholicSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 9FA180511DFD71E1DB59549A /* AppsaholicSDK.h */; };
+		1B4DA89042C5F050B2870644 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4660BFDE351562E6E3A1FABC /* SystemConfiguration.framework */; };
+		1CA81458F417776220B61761 /* MBProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B124ED796D7C0359623C43A /* MBProgressHUD.h */; };
+		1FA0C61174B3793A5FC476DA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E922234BBA74D5B0BAB1278F /* Foundation.framework */; };
+		234A7B122532C5E99D963D8E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFE5BF48C4AFB08EBAE56B7C /* UIKit.framework */; };
+		305218421AC31BDFDA9E0B69 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B189271E282F183D844BE858 /* AVFoundation.framework */; };
+		332E8EBEDAB557EE2FF396E8 /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 05F5A2B5F1B8777BC2718898 /* Reachability.h */; };
+		3A23CFEABD42E376C367F678 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C819391A7E916018AB3E9E95 /* MediaPlayer.framework */; };
+		4195DB1A631EE33095CA50F3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BEFD3EB89F5DE4D8E4DB035 /* AudioToolbox.framework */; };
+		4CCC38556C916AED3446A29D /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F6CA5AF7E387EAC429047A /* CoreMotion.framework */; };
+		52F0691EC2373E2E1D5ECAA8 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B876B4566EBAA8B6ADBB884 /* Reachability.m */; };
+		73BC9192CCC2B3C2BBA6170C /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D65AF0B1E9B00C11CCC6AE4 /* AdSupport.framework */; };
+		79F45D8065D73EFF5EB0767D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6C9ADFBDCAC1436DC12511A /* QuartzCore.framework */; };
+		7B7A663B558B6A8CB98D08BB /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16CB422B94F08B72C0D789A0 /* CoreMedia.framework */; };
+		7EDDD48364BFF4E826E834FB /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DF55BD7286551596C036FF8 /* StoreKit.framework */; };
+		A4CA177593655B40CF1FA8B4 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FFDB2A090858C5623E4D340 /* iAd.framework */; };
+		B717F601049033335F115937 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF1B3013B2E05BD56B2080E2 /* CoreGraphics.framework */; };
+		BD8BCE999A8DB688DF0DBB8D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 719B0A1628437F1EE38FDE16 /* CFNetwork.framework */; };
+		D18E09B2DB1F58EF68DBECE2 /* Pods-ThinkAndTapLite-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D07EDEFA0DADED4BAAD8B5 /* Pods-ThinkAndTapLite-dummy.m */; };
+		EA2D45E50D4DAEF2E4E1C81D /* Pods-ThinkAndTapLite-AppsaholicSDK-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B18B87620488E8D03946F2DF /* Pods-ThinkAndTapLite-AppsaholicSDK-dummy.m */; };
+		EDD6DAD77D0DF5153936850A /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 378E4438141FBC0F4BD183B4 /* CoreTelephony.framework */; };
+		FFB52DC5C03DE158087B71C2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E922234BBA74D5B0BAB1278F /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A9278F54DCBFF5AF11728804 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E0DD5D349E7A68DEFCE248D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4F1D86D4F4F0513554825E10;
+			remoteInfo = "Pods-ThinkAndTapLite-AppsaholicSDK";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		05F5A2B5F1B8777BC2718898 /* Reachability.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		078E09ED620D04CFB5B6C237 /* pollfish.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = pollfish.framework; path = PollfishSDK/pollfish.framework; sourceTree = "<group>"; };
+		0B5ECE9D6F33C27C7C3D54CC /* Pods-ThinkAndTapLite-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ThinkAndTapLite-environment.h"; sourceTree = "<group>"; };
+		0B876B4566EBAA8B6ADBB884 /* Reachability.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		0E39D2697D8D35DEA8312F09 /* Pods-ThinkAndTapLite-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ThinkAndTapLite-acknowledgements.plist"; sourceTree = "<group>"; };
+		0E3D9BEC0A69878992EB79D7 /* Pods-ThinkAndTapLite-AppsaholicSDK.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ThinkAndTapLite-AppsaholicSDK.xcconfig"; sourceTree = "<group>"; };
+		16CB422B94F08B72C0D789A0 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/CoreMedia.framework; sourceTree = DEVELOPER_DIR; };
+		16DBE8687AD0449C8335697C /* info_circle.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = info_circle.png; sourceTree = "<group>"; };
+		17A1BA96F88EE53B1CD8F750 /* FBAudienceNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBAudienceNetwork.framework; path = FacebookSDK/FBAudienceNetwork.framework; sourceTree = "<group>"; };
+		1B124ED796D7C0359623C43A /* MBProgressHUD.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		27FF2C79ADF45B98D90965D0 /* TempUnavailable.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = TempUnavailable.png; sourceTree = "<group>"; };
+		2DF55BD7286551596C036FF8 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
+		378E4438141FBC0F4BD183B4 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/CoreTelephony.framework; sourceTree = DEVELOPER_DIR; };
+		42314725A3997EB5A8E237FB /* Pods-ThinkAndTapLite-AppsaholicSDK-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ThinkAndTapLite-AppsaholicSDK-prefix.pch"; sourceTree = "<group>"; };
+		4660BFDE351562E6E3A1FABC /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
+		50098767A304F4781B90353B /* perk_star.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = perk_star.png; sourceTree = "<group>"; };
+		59D1EEF495A2B81381497897 /* libAppsaholicSDK-2.2.1.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = "libAppsaholicSDK-2.2.1.a"; sourceTree = "<group>"; };
+		5C2F4A9CCE622445A004A1E0 /* info.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
+		5C7C690665D5516C79415EA2 /* Pods-ThinkAndTapLite-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ThinkAndTapLite-acknowledgements.markdown"; sourceTree = "<group>"; };
+		5D65AF0B1E9B00C11CCC6AE4 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/AdSupport.framework; sourceTree = DEVELOPER_DIR; };
+		61307F09529A2CBBFD8D393E /* back.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
+		63A9A0C5E97F87FB67619A73 /* MBProgressHUD.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		6620AE4FB2381EF2211F8152 /* logo_perk.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = logo_perk.png; sourceTree = "<group>"; };
+		70F109B462EA12AE0C70917F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		719B0A1628437F1EE38FDE16 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
+		72BCDD0EF59B8489467C5276 /* account.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = account.png; sourceTree = "<group>"; };
+		7BEFD3EB89F5DE4D8E4DB035 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
+		82D62181CA039E57C22A20D9 /* close_button.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = close_button.png; sourceTree = "<group>"; };
+		866D2CF0C66CD2DE44C1B28A /* icon_close.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = icon_close.png; sourceTree = "<group>"; };
+		86D07EDEFA0DADED4BAAD8B5 /* Pods-ThinkAndTapLite-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ThinkAndTapLite-dummy.m"; sourceTree = "<group>"; };
+		8CF15BBC42F9133E769D565A /* Pods-ThinkAndTapLite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ThinkAndTapLite.debug.xcconfig"; sourceTree = "<group>"; };
+		9EEFA77311753FF46792F975 /* Pods-ThinkAndTapLite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ThinkAndTapLite.release.xcconfig"; sourceTree = "<group>"; };
+		9FA180511DFD71E1DB59549A /* AppsaholicSDK.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AppsaholicSDK.h; sourceTree = "<group>"; };
+		9FFDB2A090858C5623E4D340 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/iAd.framework; sourceTree = DEVELOPER_DIR; };
+		A7E7D7A6941DED9E6A8FAB14 /* exclaimation.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = exclaimation.png; sourceTree = "<group>"; };
+		AF1D632978E3DD6B3F669164 /* libPods-ThinkAndTapLite.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ThinkAndTapLite.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B189271E282F183D844BE858 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		B18B87620488E8D03946F2DF /* Pods-ThinkAndTapLite-AppsaholicSDK-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ThinkAndTapLite-AppsaholicSDK-dummy.m"; sourceTree = "<group>"; };
+		B6C9ADFBDCAC1436DC12511A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		B6F36794CACAB617BD163B05 /* icon_refresh.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = icon_refresh.png; sourceTree = "<group>"; };
+		BB35CFA17F048E03279CF758 /* Pods-ThinkAndTapLite-AppsaholicSDK-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ThinkAndTapLite-AppsaholicSDK-Private.xcconfig"; sourceTree = "<group>"; };
+		BFE5BF48C4AFB08EBAE56B7C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		C819391A7E916018AB3E9E95 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/MediaPlayer.framework; sourceTree = DEVELOPER_DIR; };
+		CA2D00F149631280BD1CBC8E /* libPods-ThinkAndTapLite-AppsaholicSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ThinkAndTapLite-AppsaholicSDK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE1B38AE48A0B532CAA9CCB3 /* AerServSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AerServSDK.framework; path = "aerserv-ios-sdk-min/lib/AerServSDK.framework"; sourceTree = "<group>"; };
+		D6F6CA5AF7E387EAC429047A /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
+		DF1B3013B2E05BD56B2080E2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		E57B797925EF271F1E49C79A /* Pods-ThinkAndTapLite-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ThinkAndTapLite-resources.sh"; sourceTree = "<group>"; };
+		E922234BBA74D5B0BAB1278F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		97399B6724A01C7C7E600DDE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				305218421AC31BDFDA9E0B69 /* AVFoundation.framework in Frameworks */,
+				73BC9192CCC2B3C2BBA6170C /* AdSupport.framework in Frameworks */,
+				4195DB1A631EE33095CA50F3 /* AudioToolbox.framework in Frameworks */,
+				BD8BCE999A8DB688DF0DBB8D /* CFNetwork.framework in Frameworks */,
+				B717F601049033335F115937 /* CoreGraphics.framework in Frameworks */,
+				7B7A663B558B6A8CB98D08BB /* CoreMedia.framework in Frameworks */,
+				4CCC38556C916AED3446A29D /* CoreMotion.framework in Frameworks */,
+				EDD6DAD77D0DF5153936850A /* CoreTelephony.framework in Frameworks */,
+				1FA0C61174B3793A5FC476DA /* Foundation.framework in Frameworks */,
+				3A23CFEABD42E376C367F678 /* MediaPlayer.framework in Frameworks */,
+				79F45D8065D73EFF5EB0767D /* QuartzCore.framework in Frameworks */,
+				7EDDD48364BFF4E826E834FB /* StoreKit.framework in Frameworks */,
+				1B4DA89042C5F050B2870644 /* SystemConfiguration.framework in Frameworks */,
+				234A7B122532C5E99D963D8E /* UIKit.framework in Frameworks */,
+				A4CA177593655B40CF1FA8B4 /* iAd.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F12ADF2EBEF68436B517892E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FFB52DC5C03DE158087B71C2 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		04DD803FCB634524922A340B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				88C162B0B6AFF3DE361AA15E /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		191F2FBAD9967A3E648F2CD6 /* AppsaholicSDK */ = {
+			isa = PBXGroup;
+			children = (
+				9FA180511DFD71E1DB59549A /* AppsaholicSDK.h */,
+				1B124ED796D7C0359623C43A /* MBProgressHUD.h */,
+				63A9A0C5E97F87FB67619A73 /* MBProgressHUD.m */,
+				05F5A2B5F1B8777BC2718898 /* Reachability.h */,
+				0B876B4566EBAA8B6ADBB884 /* Reachability.m */,
+				B75777B63B466CA87F19E981 /* Frameworks */,
+				481B8EA6A75BC8DED3BE38F6 /* Resources */,
+				4C3C91492BF511CDA2C8613F /* Support Files */,
+			);
+			name = AppsaholicSDK;
+			path = ../../AppsaholicUniversalSDK;
+			sourceTree = "<group>";
+		};
+		2D3C59333A221638DE08EE66 = {
+			isa = PBXGroup;
+			children = (
+				70F109B462EA12AE0C70917F /* Podfile */,
+				77961233E395677EA7BC85A8 /* Development Pods */,
+				04DD803FCB634524922A340B /* Frameworks */,
+				40C9B21F88363815CE1A28F5 /* Products */,
+				A5C9A2FEC1220307743862E7 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		40C9B21F88363815CE1A28F5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AF1D632978E3DD6B3F669164 /* libPods-ThinkAndTapLite.a */,
+				CA2D00F149631280BD1CBC8E /* libPods-ThinkAndTapLite-AppsaholicSDK.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		481B8EA6A75BC8DED3BE38F6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E51324C68F5A6184DFA76084 /* Resources */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		4C3C91492BF511CDA2C8613F /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				0E3D9BEC0A69878992EB79D7 /* Pods-ThinkAndTapLite-AppsaholicSDK.xcconfig */,
+				BB35CFA17F048E03279CF758 /* Pods-ThinkAndTapLite-AppsaholicSDK-Private.xcconfig */,
+				B18B87620488E8D03946F2DF /* Pods-ThinkAndTapLite-AppsaholicSDK-dummy.m */,
+				42314725A3997EB5A8E237FB /* Pods-ThinkAndTapLite-AppsaholicSDK-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../ColorTap/Pods/Target Support Files/Pods-ThinkAndTapLite-AppsaholicSDK";
+			sourceTree = "<group>";
+		};
+		77961233E395677EA7BC85A8 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				191F2FBAD9967A3E648F2CD6 /* AppsaholicSDK */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		88C162B0B6AFF3DE361AA15E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				B189271E282F183D844BE858 /* AVFoundation.framework */,
+				5D65AF0B1E9B00C11CCC6AE4 /* AdSupport.framework */,
+				7BEFD3EB89F5DE4D8E4DB035 /* AudioToolbox.framework */,
+				719B0A1628437F1EE38FDE16 /* CFNetwork.framework */,
+				DF1B3013B2E05BD56B2080E2 /* CoreGraphics.framework */,
+				16CB422B94F08B72C0D789A0 /* CoreMedia.framework */,
+				D6F6CA5AF7E387EAC429047A /* CoreMotion.framework */,
+				378E4438141FBC0F4BD183B4 /* CoreTelephony.framework */,
+				E922234BBA74D5B0BAB1278F /* Foundation.framework */,
+				C819391A7E916018AB3E9E95 /* MediaPlayer.framework */,
+				B6C9ADFBDCAC1436DC12511A /* QuartzCore.framework */,
+				2DF55BD7286551596C036FF8 /* StoreKit.framework */,
+				4660BFDE351562E6E3A1FABC /* SystemConfiguration.framework */,
+				BFE5BF48C4AFB08EBAE56B7C /* UIKit.framework */,
+				9FFDB2A090858C5623E4D340 /* iAd.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		A5C9A2FEC1220307743862E7 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				DB900A7DD58E18DBD98792A7 /* Pods-ThinkAndTapLite */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		B75777B63B466CA87F19E981 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CE1B38AE48A0B532CAA9CCB3 /* AerServSDK.framework */,
+				17A1BA96F88EE53B1CD8F750 /* FBAudienceNetwork.framework */,
+				59D1EEF495A2B81381497897 /* libAppsaholicSDK-2.2.1.a */,
+				078E09ED620D04CFB5B6C237 /* pollfish.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DB900A7DD58E18DBD98792A7 /* Pods-ThinkAndTapLite */ = {
+			isa = PBXGroup;
+			children = (
+				5C7C690665D5516C79415EA2 /* Pods-ThinkAndTapLite-acknowledgements.markdown */,
+				0E39D2697D8D35DEA8312F09 /* Pods-ThinkAndTapLite-acknowledgements.plist */,
+				86D07EDEFA0DADED4BAAD8B5 /* Pods-ThinkAndTapLite-dummy.m */,
+				0B5ECE9D6F33C27C7C3D54CC /* Pods-ThinkAndTapLite-environment.h */,
+				E57B797925EF271F1E49C79A /* Pods-ThinkAndTapLite-resources.sh */,
+				8CF15BBC42F9133E769D565A /* Pods-ThinkAndTapLite.debug.xcconfig */,
+				9EEFA77311753FF46792F975 /* Pods-ThinkAndTapLite.release.xcconfig */,
+			);
+			name = "Pods-ThinkAndTapLite";
+			path = "Target Support Files/Pods-ThinkAndTapLite";
+			sourceTree = "<group>";
+		};
+		E51324C68F5A6184DFA76084 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				27FF2C79ADF45B98D90965D0 /* TempUnavailable.png */,
+				72BCDD0EF59B8489467C5276 /* account.png */,
+				61307F09529A2CBBFD8D393E /* back.png */,
+				82D62181CA039E57C22A20D9 /* close_button.png */,
+				A7E7D7A6941DED9E6A8FAB14 /* exclaimation.png */,
+				866D2CF0C66CD2DE44C1B28A /* icon_close.png */,
+				B6F36794CACAB617BD163B05 /* icon_refresh.png */,
+				5C2F4A9CCE622445A004A1E0 /* info.png */,
+				16DBE8687AD0449C8335697C /* info_circle.png */,
+				6620AE4FB2381EF2211F8152 /* logo_perk.png */,
+				50098767A304F4781B90353B /* perk_star.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		5BDD0835616F3AE6FC684389 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1634FA0963305B8D3C364454 /* AppsaholicSDK.h in Headers */,
+				1CA81458F417776220B61761 /* MBProgressHUD.h in Headers */,
+				332E8EBEDAB557EE2FF396E8 /* Reachability.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		4F1D86D4F4F0513554825E10 /* Pods-ThinkAndTapLite-AppsaholicSDK */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4B4B9A520AFDFF7D59495824 /* Build configuration list for PBXNativeTarget "Pods-ThinkAndTapLite-AppsaholicSDK" */;
+			buildPhases = (
+				3092886814CF7C70C80FAF90 /* Sources */,
+				97399B6724A01C7C7E600DDE /* Frameworks */,
+				5BDD0835616F3AE6FC684389 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-ThinkAndTapLite-AppsaholicSDK";
+			productName = "Pods-ThinkAndTapLite-AppsaholicSDK";
+			productReference = CA2D00F149631280BD1CBC8E /* libPods-ThinkAndTapLite-AppsaholicSDK.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		76F5EB132C748A90EBFB430C /* Pods-ThinkAndTapLite */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F1A930B194FC7F5C10666F1C /* Build configuration list for PBXNativeTarget "Pods-ThinkAndTapLite" */;
+			buildPhases = (
+				FDFFDFD5395166F3227AAA0B /* Sources */,
+				F12ADF2EBEF68436B517892E /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F275038845D9818B475DDB69 /* PBXTargetDependency */,
+			);
+			name = "Pods-ThinkAndTapLite";
+			productName = "Pods-ThinkAndTapLite";
+			productReference = AF1D632978E3DD6B3F669164 /* libPods-ThinkAndTapLite.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7E0DD5D349E7A68DEFCE248D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+			};
+			buildConfigurationList = D767C770E011F0FDEE8ED6BC /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 2D3C59333A221638DE08EE66;
+			productRefGroup = 40C9B21F88363815CE1A28F5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				76F5EB132C748A90EBFB430C /* Pods-ThinkAndTapLite */,
+				4F1D86D4F4F0513554825E10 /* Pods-ThinkAndTapLite-AppsaholicSDK */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3092886814CF7C70C80FAF90 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				120C39EF76714F6C23A28964 /* MBProgressHUD.m in Sources */,
+				EA2D45E50D4DAEF2E4E1C81D /* Pods-ThinkAndTapLite-AppsaholicSDK-dummy.m in Sources */,
+				52F0691EC2373E2E1D5ECAA8 /* Reachability.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDFFDFD5395166F3227AAA0B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D18E09B2DB1F58EF68DBECE2 /* Pods-ThinkAndTapLite-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F275038845D9818B475DDB69 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-ThinkAndTapLite-AppsaholicSDK";
+			target = 4F1D86D4F4F0513554825E10 /* Pods-ThinkAndTapLite-AppsaholicSDK */;
+			targetProxy = A9278F54DCBFF5AF11728804 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		10411349323AE096474BFC4C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2D941CA7339FE38ED05DF3B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8CF15BBC42F9133E769D565A /* Pods-ThinkAndTapLite.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		3580411AC9181A4577AD3A98 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB35CFA17F048E03279CF758 /* Pods-ThinkAndTapLite-AppsaholicSDK-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-ThinkAndTapLite-AppsaholicSDK/Pods-ThinkAndTapLite-AppsaholicSDK-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		A01F9E4CDDF5C4B24EB56D2C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB35CFA17F048E03279CF758 /* Pods-ThinkAndTapLite-AppsaholicSDK-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-ThinkAndTapLite-AppsaholicSDK/Pods-ThinkAndTapLite-AppsaholicSDK-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		AD5591111EA93944E60480AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9EEFA77311753FF46792F975 /* Pods-ThinkAndTapLite.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		D5950A9207E95219E44A2C21 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4B4B9A520AFDFF7D59495824 /* Build configuration list for PBXNativeTarget "Pods-ThinkAndTapLite-AppsaholicSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3580411AC9181A4577AD3A98 /* Debug */,
+				A01F9E4CDDF5C4B24EB56D2C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D767C770E011F0FDEE8ED6BC /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5950A9207E95219E44A2C21 /* Debug */,
+				10411349323AE096474BFC4C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F1A930B194FC7F5C10666F1C /* Build configuration list for PBXNativeTarget "Pods-ThinkAndTapLite" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D941CA7339FE38ED05DF3B3 /* Debug */,
+				AD5591111EA93944E60480AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7E0DD5D349E7A68DEFCE248D /* Project object */;
+}

@@ -13,6 +13,15 @@
 // Game Configurations
 #define NUMBER_OF_COLORS 3
 
+//APPSAHOLIC KEY
+
+#define APPSAHOLIC_KEY @"1e8b0b4e3b62ea6b013f89c4854a2b872d880fd5"
+
+//Event ids
+
+#define EVNT_GAMESCORE @"c4b564ab4e094d3ce61d8175acba29322448afe8"
+#define EVNT_SCORESHARE @"980e78f34b0e13e98898c75f27ff948cfc10aec7"
+
 //Font Settings
 #define FONT_REGULAR @"AppleSDGothicNeo-Regular"
 #define FONT_THIN @"AppleSDGothicNeo-Thin"

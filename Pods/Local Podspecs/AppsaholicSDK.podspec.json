@@ -1,0 +1,57 @@
+{
+  "name": "AppsaholicSDK",
+  "version": "0.0.1",
+  "summary": "A short description of AppsaholicSDK.",
+  "description": "                   A longer description of AppsaholicSDK in Markdown format.\n\n                   * Think: Why did you write this? What is the focus? What does it do?\n                   * CocoaPods will be using this to generate tags, and improve search results.\n                   * Try to keep it short, snappy and to the point.\n                   * Finally, don't worry about the indent, CocoaPods strips it!\n",
+  "homepage": "http://EXAMPLE/AppsaholicSDK",
+  "license": "MIT (example)",
+  "authors": {
+    "Abhijeet Upadhyay": "abhijeet@perk.com"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source_files": [
+    "*.h",
+    "*.m"
+  ],
+  "preserve_paths": "AppsaholicUniversalSDK/libAppsaholicSDK-2.2.1.a",
+  "xcconfig": {
+    "LD_RUNPATH_SEARCH_PATHS": "@loader_path/../Frameworks"
+  },
+  "exclude_files": "AppsaholicUniversalSDK/Exclude",
+  "ios": {
+    "vendored_libraries": "libAppsaholicSDK-2.2.1.a",
+    "vendored_frameworks": [
+      "aerserv-ios-sdk-min/lib/AerServSDK.framework",
+      "FacebookSDK/FBAudienceNetwork.framework",
+      "PollfishSDK/pollfish.framework"
+    ]
+  },
+  "public_header_files": "*.h",
+  "resources": "Resources/*.png",
+  "frameworks": [
+    "iAd",
+    "MediaPlayer",
+    "SystemConfiguration",
+    "StoreKit",
+    "AdSupport",
+    "CoreMotion",
+    "CoreTelephony",
+    "CoreGraphics",
+    "AudioToolbox",
+    "AVFoundation",
+    "CFNetwork",
+    "CoreMedia",
+    "Foundation",
+    "MediaPlayer",
+    "QuartzCore",
+    "UIKit"
+  ],
+  "libraries": [
+    "iconv",
+    "xml2",
+    "z",
+    "sqlite3"
+  ]
+}

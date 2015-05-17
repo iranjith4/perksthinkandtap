@@ -1,0 +1,9 @@
+FRAMEWORK_SEARCH_PATHS = "$(PODS_ROOT)/../../AppsaholicUniversalSDK/aerserv-ios-sdk-min/lib" "$(PODS_ROOT)/../../AppsaholicUniversalSDK/FacebookSDK" "$(PODS_ROOT)/../../AppsaholicUniversalSDK/PollfishSDK"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AppsaholicSDK"
+LD_RUNPATH_SEARCH_PATHS = @loader_path/../Frameworks
+LIBRARY_SEARCH_PATHS = "$(PODS_ROOT)/../../AppsaholicUniversalSDK"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/AppsaholicSDK"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"AppsaholicSDK-2.2.1" -l"Pods-ThinkAndTapLite-AppsaholicSDK" -l"iconv" -l"sqlite3" -l"xml2" -l"z" -framework "AVFoundation" -framework "AdSupport" -framework "AerServSDK" -framework "AudioToolbox" -framework "CFNetwork" -framework "CoreGraphics" -framework "CoreMedia" -framework "CoreMotion" -framework "CoreTelephony" -framework "FBAudienceNetwork" -framework "Foundation" -framework "MediaPlayer" -framework "QuartzCore" -framework "StoreKit" -framework "SystemConfiguration" -framework "UIKit" -framework "iAd" -framework "pollfish"
+OTHER_LIBTOOLFLAGS = $(OTHER_LDFLAGS)
+PODS_ROOT = ${SRCROOT}/Pods

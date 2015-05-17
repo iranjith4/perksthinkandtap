@@ -16,6 +16,7 @@
 #import "AppSettings.h"
 #import "GAI.h"
 #import "GAIDictionaryBuilder.h"
+#import "AppsaholicSDK.h"
 @import GoogleMobileAds;
 
 @interface ViewController (){
@@ -43,6 +44,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self loadAppsaholic];
     NSLog(@"Google Mobile Ads SDK version: %@", [GADRequest sdkVersion]);
     if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
         self.edgesForExtendedLayout = UIRectEdgeNone;
@@ -107,6 +109,13 @@
     scores = [[ScoreView alloc] initWithFrame:CGRectMake(0, yPos, self.view.frame.size.width, self.view.frame.size.height * 0.12) andData:scoreData];
     yPos += scores.frame.size.height + self.view.frame.size.height * 0.03;
     [self.view addSubview:scores];
+}
+
+- (void)loadAppsaholic{
+    ((AppsaholicSDK *)[AppsaholicSDK sharedManager]).rootViewController = self;
+    [[AppsaholicSDK sharedManager] startSession:APPSAHOLIC_KEY withSuccess:^(BOOL success, NSString* status) {
+        
+    }];
 }
 
 - (void)gameView{
@@ -406,6 +415,7 @@
 }
 
 - (void)showGameEndAlert:(NSString *)alertMsg andScore:(NSString*)scoreString;{
+    
     UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Game Over"
                                                                    message:alertMsg
                                                             preferredStyle:UIAlertControllerStyleAlert];
@@ -419,7 +429,13 @@
     }
     
     UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
-                                                          handler:^(UIAlertAction * action) {}];
+                                                          handler:^(UIAlertAction * action) {
+                                                          
+[[AppsaholicSDK sharedManager] trackEvent:EVNT_GAMESCORE notificationType:NO withController:self withSuccess:^(BOOL success, NSString *notificationtext, NSNumber *pointEarned) {
+                                                                  NSLog(@"%@ and %@",notificationtext,pointEarned);
+                                                              }];
+                                                              
+                                                          }];
     UIAlertAction* share = [UIAlertAction actionWithTitle:@"Share" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         [self shareScore:scoreString];
     }];
@@ -708,6 +724,11 @@
         UIPopoverController *popup = [[UIPopoverController alloc] initWithContentViewController:activityVC];
         [popup presentPopoverFromRect:CGRectMake(self.view.frame.size.width/2, self.view.frame.size.height/4, 0, 0)inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
     }
+    
+    [[AppsaholicSDK sharedManager] trackEvent:EVNT_SCORESHARE notificationType:NO withController:self withSuccess:^(BOOL success, NSString *notificationtext, NSNumber *pointEarned) {
+        NSLog(@"%@ and %@",notificationtext,pointEarned);
+    }];
+
 }
 
 - (UIImage *) scoreCreator:(NSString *)scoreString{

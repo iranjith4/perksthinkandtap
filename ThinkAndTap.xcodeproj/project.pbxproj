@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC381F5196B4E9BC76EF2CC3 /* libPods-ThinkAndTapLite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C176AF0606BCC0F29EFB8A7A /* libPods-ThinkAndTapLite.a */; };
 		C604E2771AE07C6600087024 /* logo_score.png in Resources */ = {isa = PBXBuildFile; fileRef = C604E2761AE07C6600087024 /* logo_score.png */; };
 		C607B27F1AD2F13900400F25 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C607B27E1AD2F13900400F25 /* main.m */; };
 		C607B2821AD2F13900400F25 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C607B2811AD2F13900400F25 /* AppDelegate.m */; };
@@ -36,6 +37,13 @@
 		C66CFC601AE2FA82007F2FE0 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C66CFC5F1AE2FA82007F2FE0 /* libsqlite3.dylib */; };
 		C66CFC621AE2FA98007F2FE0 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C66CFC611AE2FA98007F2FE0 /* libGoogleAnalyticsServices.a */; };
 		C671D5451AD458D900C6C77B /* ScoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = C671D5441AD458D900C6C77B /* ScoreView.m */; };
+		C67484441B07F021009EB012 /* __vungle.db in Resources */ = {isa = PBXBuildFile; fileRef = C674843D1B07F021009EB012 /* __vungle.db */; };
+		C67484451B07F021009EB012 /* vg_close.png in Resources */ = {isa = PBXBuildFile; fileRef = C674843E1B07F021009EB012 /* vg_close.png */; };
+		C67484461B07F021009EB012 /* vg_cta.png in Resources */ = {isa = PBXBuildFile; fileRef = C674843F1B07F021009EB012 /* vg_cta.png */; };
+		C67484471B07F021009EB012 /* vg_mute_off.png in Resources */ = {isa = PBXBuildFile; fileRef = C67484401B07F021009EB012 /* vg_mute_off.png */; };
+		C67484481B07F021009EB012 /* vg_mute_on.png in Resources */ = {isa = PBXBuildFile; fileRef = C67484411B07F021009EB012 /* vg_mute_on.png */; };
+		C67484491B07F021009EB012 /* vg_timer.png in Resources */ = {isa = PBXBuildFile; fileRef = C67484421B07F021009EB012 /* vg_timer.png */; };
+		C674844A1B07F021009EB012 /* VungleSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C67484431B07F021009EB012 /* VungleSDK.framework */; };
 		C6A784A81AD598290077ED0F /* ci_f_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A784931AD598290077ED0F /* ci_f_1@2x.png */; };
 		C6A784A91AD598290077ED0F /* ci_f_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A784941AD598290077ED0F /* ci_f_2@2x.png */; };
 		C6A784AA1AD598290077ED0F /* ci_f_3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A784951AD598290077ED0F /* ci_f_3@2x.png */; };
@@ -76,6 +84,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		31AD43016305FF466CAA5366 /* Pods-ThinkAndTapLite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThinkAndTapLite.release.xcconfig"; path = "Pods/Target Support Files/Pods-ThinkAndTapLite/Pods-ThinkAndTapLite.release.xcconfig"; sourceTree = "<group>"; };
+		C176AF0606BCC0F29EFB8A7A /* libPods-ThinkAndTapLite.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ThinkAndTapLite.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C604E2761AE07C6600087024 /* logo_score.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo_score.png; path = Resources/scoreImage/logo_score.png; sourceTree = "<group>"; };
 		C607B2791AD2F13900400F25 /* ThinkAndTapLite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThinkAndTapLite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C607B27D1AD2F13900400F25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -127,6 +137,13 @@
 		C66CFC611AE2FA98007F2FE0 /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAnalyticsServices.a; path = ../../../Downloads/GoogleAnalyticsServicesiOS_3.10/libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
 		C671D5431AD458D900C6C77B /* ScoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScoreView.h; path = Views/ScoreView.h; sourceTree = "<group>"; };
 		C671D5441AD458D900C6C77B /* ScoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScoreView.m; path = Views/ScoreView.m; sourceTree = "<group>"; };
+		C674843D1B07F021009EB012 /* __vungle.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = __vungle.db; sourceTree = "<group>"; };
+		C674843E1B07F021009EB012 /* vg_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vg_close.png; sourceTree = "<group>"; };
+		C674843F1B07F021009EB012 /* vg_cta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vg_cta.png; sourceTree = "<group>"; };
+		C67484401B07F021009EB012 /* vg_mute_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vg_mute_off.png; sourceTree = "<group>"; };
+		C67484411B07F021009EB012 /* vg_mute_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vg_mute_on.png; sourceTree = "<group>"; };
+		C67484421B07F021009EB012 /* vg_timer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vg_timer.png; sourceTree = "<group>"; };
+		C67484431B07F021009EB012 /* VungleSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = VungleSDK.framework; sourceTree = "<group>"; };
 		C6A784931AD598290077ED0F /* ci_f_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ci_f_1@2x.png"; path = "Resources/Images/ci_f_1@2x.png"; sourceTree = "<group>"; };
 		C6A784941AD598290077ED0F /* ci_f_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ci_f_2@2x.png"; path = "Resources/Images/ci_f_2@2x.png"; sourceTree = "<group>"; };
 		C6A784951AD598290077ED0F /* ci_f_3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ci_f_3@2x.png"; path = "Resources/Images/ci_f_3@2x.png"; sourceTree = "<group>"; };
@@ -157,6 +174,7 @@
 		C6D4974E1ADA9C6A00B59313 /* MenuButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuButton.m; path = Views/MenuButton.m; sourceTree = "<group>"; };
 		C6F363DC1AE31E6100BD4D4F /* tut4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tut4.png; path = Resources/scoreImage/tut4.png; sourceTree = "<group>"; };
 		C6F363DE1AE32EB800BD4D4F /* up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = up.png; sourceTree = "<group>"; };
+		FB0EF875985920419B358F8F /* Pods-ThinkAndTapLite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThinkAndTapLite.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ThinkAndTapLite/Pods-ThinkAndTapLite.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +190,8 @@
 				C66CFC5A1AE2FA3E007F2FE0 /* CoreData.framework in Frameworks */,
 				C6229A611AE3B0B000D4B2C2 /* GoogleMobileAds.framework in Frameworks */,
 				C6B4D1271ADA2B1400BFC7C4 /* GameKit.framework in Frameworks */,
+				C674844A1B07F021009EB012 /* VungleSDK.framework in Frameworks */,
+				BC381F5196B4E9BC76EF2CC3 /* libPods-ThinkAndTapLite.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,6 +205,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A0507020EAE452C3EA37B1F2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FB0EF875985920419B358F8F /* Pods-ThinkAndTapLite.debug.xcconfig */,
+				31AD43016305FF466CAA5366 /* Pods-ThinkAndTapLite.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A08219C8C45FEF2C47394596 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C176AF0606BCC0F29EFB8A7A /* libPods-ThinkAndTapLite.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C604E2751AE07AE200087024 /* scoreImage */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,6 +241,7 @@
 		C607B2701AD2F13900400F25 = {
 			isa = PBXGroup;
 			children = (
+				C674843B1B07F021009EB012 /* VungleSDK.embeddedframework */,
 				C6229A621AE3B0D400D4B2C2 /* AdSupport.framework */,
 				C6229A601AE3B0B000D4B2C2 /* GoogleMobileAds.framework */,
 				C66CFC611AE2FA98007F2FE0 /* libGoogleAnalyticsServices.a */,
@@ -215,6 +253,8 @@
 				C607B27B1AD2F13900400F25 /* ColorTap */,
 				C607B2951AD2F13900400F25 /* ColorTapTests */,
 				C607B27A1AD2F13900400F25 /* Products */,
+				A0507020EAE452C3EA37B1F2 /* Pods */,
+				A08219C8C45FEF2C47394596 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -354,6 +394,28 @@
 			name = GA;
 			sourceTree = "<group>";
 		};
+		C674843B1B07F021009EB012 /* VungleSDK.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				C674843C1B07F021009EB012 /* Resources */,
+				C67484431B07F021009EB012 /* VungleSDK.framework */,
+			);
+			path = VungleSDK.embeddedframework;
+			sourceTree = "<group>";
+		};
+		C674843C1B07F021009EB012 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C674843D1B07F021009EB012 /* __vungle.db */,
+				C674843E1B07F021009EB012 /* vg_close.png */,
+				C674843F1B07F021009EB012 /* vg_cta.png */,
+				C67484401B07F021009EB012 /* vg_mute_off.png */,
+				C67484411B07F021009EB012 /* vg_mute_on.png */,
+				C67484421B07F021009EB012 /* vg_timer.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		C6A784911AD598170077ED0F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -399,9 +461,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C607B29C1AD2F13A00400F25 /* Build configuration list for PBXNativeTarget "ThinkAndTapLite" */;
 			buildPhases = (
+				FC7A55D7A89D05BD9EA55DD5 /* Check Pods Manifest.lock */,
 				C607B2751AD2F13900400F25 /* Sources */,
 				C607B2761AD2F13900400F25 /* Frameworks */,
 				C607B2771AD2F13900400F25 /* Resources */,
+				9E743A553349055080E7C443 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -485,6 +549,7 @@
 				C6A784BC1AD598290077ED0F /* tr_w@2x.png in Resources */,
 				C6A784BA1AD598290077ED0F /* tr_uf_2@2x.png in Resources */,
 				C6A784AE1AD598290077ED0F /* ci_w@2x.png in Resources */,
+				C67484461B07F021009EB012 /* vg_cta.png in Resources */,
 				C6A784BB1AD598290077ED0F /* tr_uf_3@2x.png in Resources */,
 				C634C86E1AE2CAAD00C42BA1 /* logo.jpg in Resources */,
 				C6A784AC1AD598290077ED0F /* ci_uf_2@2x.png in Resources */,
@@ -500,9 +565,12 @@
 				C6A784B81AD598290077ED0F /* tr_f_3@2x.png in Resources */,
 				C6A784AA1AD598290077ED0F /* ci_f_3@2x.png in Resources */,
 				C634C8601AE2958100C42BA1 /* gc-icon.png in Resources */,
+				C67484441B07F021009EB012 /* __vungle.db in Resources */,
 				C634C85C1AE2865600C42BA1 /* click2.wav in Resources */,
+				C67484491B07F021009EB012 /* vg_timer.png in Resources */,
 				C6A784B31AD598290077ED0F /* sq_uf_2@2x.png in Resources */,
 				C6A784B21AD598290077ED0F /* sq_uf_1@2x.png in Resources */,
+				C67484471B07F021009EB012 /* vg_mute_off.png in Resources */,
 				C6A784B41AD598290077ED0F /* sq_uf_3@2x.png in Resources */,
 				C6F363DF1AE32EB800BD4D4F /* up.png in Resources */,
 				C6A784AB1AD598290077ED0F /* ci_uf_1@2x.png in Resources */,
@@ -511,6 +579,8 @@
 				C60A62491AE33512007C2BC5 /* up1.png in Resources */,
 				C6F363DD1AE31E6100BD4D4F /* tut4.png in Resources */,
 				C604E2771AE07C6600087024 /* logo_score.png in Resources */,
+				C67484481B07F021009EB012 /* vg_mute_on.png in Resources */,
+				C67484451B07F021009EB012 /* vg_close.png in Resources */,
 				C6A784A81AD598290077ED0F /* ci_f_1@2x.png in Resources */,
 				C6A784B11AD598290077ED0F /* sq_f_3@2x.png in Resources */,
 			);
@@ -524,6 +594,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9E743A553349055080E7C443 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ThinkAndTapLite/Pods-ThinkAndTapLite-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FC7A55D7A89D05BD9EA55DD5 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C607B2751AD2F13900400F25 /* Sources */ = {
@@ -661,6 +764,7 @@
 		};
 		C607B29D1AD2F13A00400F25 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB0EF875985920419B358F8F /* Pods-ThinkAndTapLite.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -669,6 +773,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ColorTap",
+					"$(PROJECT_DIR)/VungleSDK.embeddedframework",
 				);
 				INFOPLIST_FILE = ColorTap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -684,6 +789,7 @@
 		};
 		C607B29E1AD2F13A00400F25 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 31AD43016305FF466CAA5366 /* Pods-ThinkAndTapLite.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -692,6 +798,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ColorTap",
+					"$(PROJECT_DIR)/VungleSDK.embeddedframework",
 				);
 				INFOPLIST_FILE = ColorTap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
